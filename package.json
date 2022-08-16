@@ -1,0 +1,34 @@
+{
+  "name": "sistema-de-autoavaliacao-backend",
+  "version": "1.0.0",
+  "description": "desenvolvimento de sistema de autoavaliação",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/larissacard/Sistema-de-Autoavaliacao-BackEnd.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "bcript"
+  ],
+  "author": "larissacard, cadumeneses, caoisousaf, PedroMiguel7, VinicciusSantos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/larissacard/Sistema-de-Autoavaliacao-BackEnd/issues"
+  },
+  "homepage": "https://github.com/larissacard/Sistema-de-Autoavaliacao-BackEnd#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1",
+    "express-validator": "^6.14.2",
+    "jsonwebtoken": "^8.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
