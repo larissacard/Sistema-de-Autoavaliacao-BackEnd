@@ -49,15 +49,23 @@ exports.cadastrar = async(req, res, next) => {
 
 
 exports.login = async(req,res,next) => {
-    const email = req.body.email;
+    const cpf = req.body.cpf;
     const senha = req.body.senha;
 
     try {
 
-        const user = await Root.procurarRoot(email);
+        const user = await Root.procurarRoot(cpf);
+
+        // if (user.tipo == 3) {
+        //     res.status(200).json({message: "Login Finalizado"})
+        // }
+        // else {
+        //     res.status(200).json({message: "Insira a senha para concluir o login"})
+        // }
+        
 
         if(user.rows.length !== 1){
-            const error = new Error('Email não encontrado!');
+            const error = new Error('CPF não encontrado!');
             error.statusCode = 401;
             throw error;
         }
@@ -74,7 +82,7 @@ exports.login = async(req,res,next) => {
 
         const token = jwt.sign(
             {
-                email: guardaUser.email,
+                cpf: guardaUser.cpf,
                 userId: guardaUser.id
             },
             'secretfortoken',
