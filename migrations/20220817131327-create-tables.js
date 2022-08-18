@@ -107,6 +107,8 @@ module.exports = {
     DROP TABLE IF EXISTS pesquisa;
     DROP TABLE IF EXISTS usuario;
     DROP TABLE IF EXISTS grupo;
+    DROP TABLE IF EXISTS tipo_pesquisa;
+    DROP TABLE IF EXISTS tipo_usuario;
     `);
   }
 };
