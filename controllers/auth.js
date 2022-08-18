@@ -42,3 +42,47 @@ exports.cadastrar = async(req, res, next) => {
         next(err)
     }
 }
+
+
+exports.login = async(req,res,next) => {
+    const email = req.body.email;
+    const senha = req.body.senha;
+
+    try {
+
+        const user = Root.procurarRoot(email);
+
+        if(user.rows.length !== 1){
+            const error = new Error('Email não encontrado!');
+            error.statusCode = 401;
+            throw error;
+        }
+
+        const guardaUser = user.rows[0];
+
+        const confirmaSenha = await bcrypt.compare(senha, guardaUser);
+
+        if(!confirmaSenha){
+            const error = new Error('Senha incorreta!');
+            error.statusCode = 401;
+            throw error;
+        }
+
+        const token = jwt.sign(
+            {
+                email: guardaUser.email,
+                userId: guardaUser.id
+            },
+            'secretfortoken',
+            { expiresIn: '2h' }
+        );
+
+        res.status(200).json({ token: token, userId: guardaUser.id })
+        
+    } catch (err) {
+        if(!err.statusCode){
+            err.statusCode = 500;
+        }
+        next(err)
+    }
+}
