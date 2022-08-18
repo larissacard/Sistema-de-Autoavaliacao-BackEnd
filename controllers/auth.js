@@ -19,7 +19,11 @@ exports.cadastrar = async(req, res, next) => {
     const foto = req.body.foto;
 
     try {
-
+        if (tipo == 1){
+            const error = new Error('Deus Já Existe!');
+            error.statusCode = 400;
+            throw error;
+        }
         const criptografaSenha = await bcrypt.hash(senha, 12);
 
         const detalhesUsuario = {
@@ -50,7 +54,7 @@ exports.login = async(req,res,next) => {
 
     try {
 
-        const user = Root.procurarRoot(email);
+        const user = await Root.procurarRoot(email);
 
         if(user.rows.length !== 1){
             const error = new Error('Email não encontrado!');
@@ -60,7 +64,7 @@ exports.login = async(req,res,next) => {
 
         const guardaUser = user.rows[0];
 
-        const confirmaSenha = await bcrypt.compare(senha, guardaUser);
+        const confirmaSenha = await bcrypt.compare(senha, guardaUser.senha);
 
         if(!confirmaSenha){
             const error = new Error('Senha incorreta!');

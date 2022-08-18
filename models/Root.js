@@ -12,8 +12,8 @@ module.exports = class Root {
         this.foto = foto;
     }
 
-    static procurarRoot(cpf){
-        return cliente.query("SELECT * from public.usuario WHERE cpf = ($1)", [cpf]);
+    static procurarRoot(email){
+        return cliente.query("SELECT * from public.usuario WHERE email = $1", [email]);
     }
 
     static adicionaRoot(root){

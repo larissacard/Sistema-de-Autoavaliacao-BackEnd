@@ -25,4 +25,6 @@ router.post('/cadastrar',
     ], authController.cadastrar
 )
 
+router.post('/login', authController.login)
+
 module.exports = router;
