@@ -1,4 +1,4 @@
-const cliente = require("../server/data/connection");
+const cliente = require("../server/infra/connection");
 
 cliente.connect()
 

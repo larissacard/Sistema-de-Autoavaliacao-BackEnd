@@ -15,11 +15,6 @@ app.use(cors())
 
 app.use('/auth', authRoutes);
 
-app.get('/', function (req, res) {
-    return res.json(`oi`)
-})
-
-
 app.listen(port, host, () => {
     console.log(`API funcionando no host:`, host, `e na porta:`, port)
 })
