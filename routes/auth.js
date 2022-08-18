@@ -1,12 +1,12 @@
 const express = require('express');
 
-const { body } = require('express-validator')
+const { body } = require('express-validator');
 
 const router = express.Router();
 
 const Root = require('../models/Root');
 
-const authController = require('../controllers/auth')
+const authController = require('../controllers/auth');
 
 
 router.post('/cadastrar',
@@ -25,4 +25,4 @@ router.post('/cadastrar',
     ], authController.cadastrar
 )
 
-module.exports = router
+module.exports = router;
