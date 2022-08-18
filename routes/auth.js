@@ -12,10 +12,10 @@ const authController = require('../controllers/auth')
 router.post('/cadastrar',
     [
         body('nome').trim().isEmpty(),
-        body('email').isEmail().withMessage('Please enter a valid email.').custom(async (email)=>{
-            const user = await User.find(email);
+        body('email').isEmail().withMessage('Email Inválido').custom(async (email)=>{
+            const user = await Root.find(email);
             if(user[0].length > 0){
-                return Promise.reject('Email address already exist!')
+                return Promise.reject('Email já existe!')
             }
         }).normalizeEmail(),
         body('senha').trim().isLength({ min: 7 }),
