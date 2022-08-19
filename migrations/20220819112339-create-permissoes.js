@@ -1,25 +1,27 @@
 'use strict';
 module.exports = {
-  async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('permissoes', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      descricao: {
-        type: Sequelize.TEXT
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
-    });
+  async up(queryInterface) {
+    await queryInterface.sequelize.query(`
+    CREATE OR REPLACE FUNCTION trigger_set_timestamp()
+    RETURNS TRIGGER AS $$
+    BEGIN
+      NEW.updated_at = NOW();
+      RETURN NEW;
+    END;
+    $$ LANGUAGE plpgsql;
+
+    CREATE TABLE "permissoes" (
+      "id" bigserial PRIMARY KEY,
+      "descricao" text NOT NULL,
+      "created_at" timestamp NOT NULL DEFAULT (now()),
+      "updated_at" timestamp NOT NULL DEFAULT (now())
+    );
+
+    CREATE TRIGGER set_timestamp
+    BEFORE UPDATE ON permissoes
+    FOR EACH ROW
+    EXECUTE PROCEDURE trigger_set_timestamp();
+    `);
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('permissoes');
