@@ -94,12 +94,13 @@ exports.login = async(req,res,next) => {
         const token = jwt.sign(
             {
                 cpf: guardaUser.cpf,
-                userId: guardaUser.id
+                userId: guardaUser.id,
+                tipo: guardaUser.tipo
             },
             'secretfortoken',
             { expiresIn: '2h' }
             );
             
-            res.status(200).json({ token: token, userId: guardaUser.id })
+            res.status(200).json({ token: token, userId: guardaUser.id, tipo: guardaUser.tipo })
         }     
 }
