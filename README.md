@@ -21,7 +21,7 @@
 -  O Banco de Dados e a BackEnd estão hospedadas no [Heroku](https://www.heroku.com).
 - Foi desenvolvido com [NodeJs](https://nodejs.org/en/), [Express](https://expressjs.com/pt-br/) e [PostgreSQL](https://www.postgresql.org);
 
-# Funcionalidades]
+# Funcionalidades
 - SISTEMAS DE GESTÃO DE USUÁRIOS 
 - PERFIS DE USUÁRIOS
   - ROOT
@@ -30,3 +30,17 @@
   - COLABORADOR
 - GESTÃO DE PESQUISA DE SATISFAÇÃO 
   - metodologia NPS
+
+# Rotas
+
+- Login
+```https://aasa-senai.herokuapp.com/auth/login
+``` 
+
+- User comum
+```
+{
+	"cpf": "12301"
+}
+```
+
