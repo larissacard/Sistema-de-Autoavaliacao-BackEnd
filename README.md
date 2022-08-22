@@ -49,7 +49,7 @@ São esperadas as seguintes entradas:
 ```
 
 -  User ADMIN
-```
+```json
 {
 	"cpf": "12345678900",
 	"senha": "1234"
@@ -63,7 +63,7 @@ https://aasa-senai.herokuapp.com/auth/cadastrar
 ``` 
 
 São esperadas as seguintes entradas:
-```
+```json
 {
 	"nome": "larissa",
 	"email": "larissa@gmail.com";
@@ -85,13 +85,13 @@ Observações:
 
 - EDITAR User
 Usando o método PUT, podemos acessar o seguinte endereço:
-```
+```json
 https://aasa-senai.herokuapp.com/auth/user/:id
 ```
 
 É necessario passar os seguintes campos:
 
-```
+```json
 {
 	"nome": "",
 	"email": "";
@@ -107,7 +107,7 @@ https://aasa-senai.herokuapp.com/auth/user/:id
 - Buscar Pesquisas
 Retorna todas as pesquisas que foram cadastradas em uma lista de objetos
 
-```
+```json
 [
 	{
 		"id": "1",
@@ -140,7 +140,7 @@ O retorno esperado é um objeto com as seguintes informações:
 - Perguntas
 - Respostas
 
-```
+```json
 {
 	"id": "",
 	"descricao": "",
