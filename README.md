@@ -56,7 +56,7 @@ São esperadas as seguintes entradas:
 }
 ```
 
-## Cadastrar User
+## User
 Usando o método POST podemos acessar o seguinte endereço:
 ```
 https://aasa-senai.herokuapp.com/auth/cadastrar
@@ -70,6 +70,34 @@ São esperadas as seguintes entradas:
 	"senha": "1234",
 	"tipo": "1",
 	"cpf": "12345678900",
+	"foto": ""
+}
+```
+
+- DELETAR User
+Para apagar um, é necessário acessar o seguinte endereço usando o método DELETE, sendo ":id" um identificador de um user:
+```
+https://aasa-senai.herokuapp.com/auth/user/:id
+```
+Observações:
+
+	- ":id" se refere ao código identificador de um user
+
+- EDITAR User
+Usando o método PUT, podemos acessar o seguinte endereço:
+```
+https://aasa-senai.herokuapp.com/auth/user/:id
+```
+
+É necessario passar os seguintes campos:
+
+```
+{
+	"nome": "",
+	"email": "";
+	"senha": "",
+	"tipo": "",
+	"cpf": "",
 	"foto": ""
 }
 ```
@@ -126,6 +154,8 @@ Para apagar uma, é necessário acessar o seguinte endereço usando o método DE
 ```
 https://aasa-senai.herokuapp.com/auth/pesquisa/:id
 ```
+
+- Editar Pesquisa
 
 
 
