@@ -56,7 +56,7 @@ São esperadas as seguintes entradas:
 }
 ```
 
-## Cadastrar
+## Cadastrar User
 Usando o método POST podemos acessar o seguinte endereço:
 ```
 https://aasa-senai.herokuapp.com/auth/cadastrar
@@ -70,9 +70,19 @@ São esperadas as seguintes entradas:
 	"senha": "",
 	"tipo": "",
 	"cpf": "",
-	"foto": "",
+	"foto": ""
 }
 ```
+
+## Pesquisa
+
+- Buscar Pesquisa Especifica
+Acessar a seguinte rota usando o método GET:
+```
+https://aasa-senai.herokuapp.com/auth/pesquisa/:id
+```
+O retorno esperado é um objeto com as seguintes informações:
+
 
 
 
