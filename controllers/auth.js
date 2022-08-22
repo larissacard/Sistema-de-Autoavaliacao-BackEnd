@@ -72,7 +72,7 @@ exports.login = async(req,res,next) => {
                 cpf: guardaUser.cpf,
                 userId: guardaUser.id
             },
-            'secretfortoken',
+            process.env.SECRET,
             { expiresIn: '2h' }
             );
         return res.status(200).json({message: "Login Finalizado", token: token, userId: guardaUser.id})

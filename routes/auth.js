@@ -10,7 +10,6 @@ const authController = require('../controllers/auth');
 
 
 router.post('/cadastrar',
-    [
         body('nome').trim().isEmpty(),
         body('email').isEmail().withMessage('Email Inválido').custom(async (email)=>{
             const user = await Root.find(email);
@@ -20,9 +19,9 @@ router.post('/cadastrar',
         }).normalizeEmail(),
         body('senha').trim().isLength({ min: 7 }),
         body('tipo').trim().isEmpty(),
-        body('cpf').trim().isLength({ min: 11, max: 11 }),
+        body('cpf').not().trim().isLength({ min: 11, max: 11 }),
         body('foto').trim().isEmpty()
-    ], authController.cadastrar
+    , authController.cadastrar
 )
 
 router.post('/login', authController.login)

@@ -3,6 +3,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const authRoutes = require('../routes/auth');
+const pesquisa = require('../routes/pesquisas')
 // const { route } = require('../routes/auth');
 
 const host = '0.0.0.0';
@@ -16,6 +17,8 @@ app.use(cors());
 // app.use(route);
 
 app.use('/auth', authRoutes);
+
+app.use(pesquisa)
 
 app.listen(port, host, () => {
     console.log(`API funcionando no host:`, host, `e na porta:`, port)
