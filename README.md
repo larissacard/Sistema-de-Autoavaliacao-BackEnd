@@ -66,7 +66,7 @@ São esperadas as seguintes entradas:
 ```json
 {
 	"nome": "larissa",
-	"email": "larissa@gmail.com";
+	"email": "larissa@gmail.com",
 	"senha": "1234",
 	"tipo": "1",
 	"cpf": "12345678900",
