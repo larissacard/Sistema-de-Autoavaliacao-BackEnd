@@ -76,23 +76,58 @@ São esperadas as seguintes entradas:
 
 ## Pesquisa
 
+- Buscar Pesquisas
+Retorna todas as pesquisas que foram cadastradas em uma lista de objetos
+
+```
+[
+	{
+		"id": "1",
+		"descricao": "Descricao aqui",
+		"tipo_pesquisa": "",
+		"id_usuario": "1"
+	}
+	{
+		"id": "2",
+		"descricao": "Descricao aqui",
+		"tipo_pesquisa": "",
+		"id_usuario": "2"
+	}
+	{
+		"id": "3",
+		"descricao": "Descricao aqui",
+		"tipo_pesquisa": "",
+		"id_usuario": "1"
+	}
+]
+```
+
 - Buscar Pesquisa Especifica
 Acessar a seguinte rota usando o método GET:
 ```
 https://aasa-senai.herokuapp.com/auth/pesquisa/:id
 ```
 O retorno esperado é um objeto com as seguintes informações:
-- Dados (infomações básicas);
+- Dados (infomações básicas)
 - Perguntas
 - Respostas
 
 ```
 {
+	"id": "",
 	"descricao": "",
 	"tipo_pesquisa": "",
 	"id_usuario": ""
 }
 ```
+
+- Deletar Pesquisa
+Para apagar uma, é necessário acessar o seguinte endereço usando o método DELETE, sendo ":id" um identificador de uma pesquisa:
+```
+https://aasa-senai.herokuapp.com/auth/pesquisa/:id
+```
+
+
 
 
 
