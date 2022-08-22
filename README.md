@@ -42,7 +42,7 @@ https://aasa-senai.herokuapp.com/auth/login
 São esperadas as seguintes entradas:
 
 - User comum
-```
+```json
 {
 	"cpf": "12345678900"
 }
