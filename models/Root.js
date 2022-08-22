@@ -1,7 +1,5 @@
 const cliente = require("../server/infra/connection");
 
-cliente.connect()
-
 module.exports = class Root { 
     constructor(tipo, nome, email, senha, cpf, foto){
         this.nome = nome;
