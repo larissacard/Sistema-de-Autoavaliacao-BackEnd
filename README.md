@@ -44,15 +44,15 @@ São esperadas as seguintes entradas:
 - User comum
 ```
 {
-	"cpf": ""
+	"cpf": "12345678900"
 }
 ```
 
 -  User ADMIN
 ```
 {
-	"cpf": "",
-	"senha": ""
+	"cpf": "12345678900",
+	"senha": "1234"
 }
 ```
 
@@ -65,11 +65,11 @@ https://aasa-senai.herokuapp.com/auth/cadastrar
 São esperadas as seguintes entradas:
 ```
 {
-	"nome": "",
-	"email": "";
-	"senha": "",
-	"tipo": "",
-	"cpf": "",
+	"nome": "larissa",
+	"email": "larissa@gmail.com";
+	"senha": "1234",
+	"tipo": "1",
+	"cpf": "12345678900",
 	"foto": ""
 }
 ```
