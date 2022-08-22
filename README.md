@@ -85,7 +85,7 @@ Observações:
 
 - EDITAR User
 Usando o método PUT, podemos acessar o seguinte endereço:
-```json
+```
 https://aasa-senai.herokuapp.com/auth/user/:id
 ```
 
@@ -94,7 +94,7 @@ https://aasa-senai.herokuapp.com/auth/user/:id
 ```json
 {
 	"nome": "",
-	"email": "";
+	"email": "",
 	"senha": "",
 	"tipo": "",
 	"cpf": "",
