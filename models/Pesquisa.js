@@ -9,7 +9,7 @@ module.exports = class Pesquisa {
     }
 
     static procuraPesquisa(titulo) {
-        return cliente.query("SELECT * FROM pesquisa WHERE titulo = $1");
+        return cliente.query("SELECT * FROM pesquisa WHERE titulo = $1", [titulo]);
     }
 }
 
