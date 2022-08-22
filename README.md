@@ -82,6 +82,17 @@ Acessar a seguinte rota usando o método GET:
 https://aasa-senai.herokuapp.com/auth/pesquisa/:id
 ```
 O retorno esperado é um objeto com as seguintes informações:
+- Dados (infomações básicas);
+- Perguntas
+- Respostas
+
+```
+{
+	"descricao": "",
+	"tipo_pesquisa": "",
+	"id_usuario": ""
+}
+```
 
 
 
