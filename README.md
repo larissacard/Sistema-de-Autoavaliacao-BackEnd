@@ -34,22 +34,29 @@
 # Rotas
 
 ## Login
+Usando o método POST podemos acessar o seguinte endereço:
 ```
 https://aasa-senai.herokuapp.com/auth/login
 ``` 
 
+São esperadas as seguintes entradas:
+
 - User comum
 ```
 {
-	"cpf": "12301"
+	"cpf": ""
 }
 ```
 
 -  User ADMIN
 ```
 {
-	"cpf": "12302131",
-	"senha": "1201"
+	"cpf": "",
+	"senha": ""
 }
 ```
+
+## Cadastrar
+
+
 
