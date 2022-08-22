@@ -6,8 +6,6 @@ const pesquisa_controller = require('../controllers/pesquisa')
 
 const Pesquisa = require('../models/Pesquisa');
 
-router.get('/pesquisa/:id', auth, pesquisa_controller.pesquisa ,async (req, res, next) => {
-    // return res.status(200).json({message: "ok", dados: pesquisa});
-});
+router.get('/pesquisa/:id', auth, pesquisa_controller.pesquisa);
 
 module.exports = router;
