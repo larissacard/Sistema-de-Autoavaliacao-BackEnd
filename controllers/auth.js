@@ -61,9 +61,11 @@ exports.login = async(req,res,next) => {
     const guardaUser = user.rows[0];
 
     if(user.rows.length !== 1){
-        const error = new Error('Usuário não encontrado!');
-        error.statusCode = 401;
-        throw error;
+        return res.status(404).json({message: `Usuário não encontrado`})
+        // const error = new Error('Usuário não encontrado!');
+        // error.statusCode = 401;
+        
+        // throw error;
     }
 
     if (user.rows[0].tipo == 3) {

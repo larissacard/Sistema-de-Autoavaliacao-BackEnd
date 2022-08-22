@@ -7,20 +7,12 @@ module.exports = class Pesquisa {
         this.descricao = descricao;
     }
  
-    static async procuraPesquisa(id) {
-        const res = await cliente.query("SELECT * FROM pesquisa WHERE id = $1", [id]);
-
-        const perguntas = await cliente
-                                    .query(`SELECT * FROM perguntas AS perg ON perg.fk_pesquisa = pe.id
-                                            WHERE pe.id = 7`)
-                                    .catch(e => {
-                                        return res.status(400).json(e)
-                                    })
-        
-        const res_obj = res.rows[0]
-        res_obj.perguntas = perguntas.rows
-
-        return res.status(200).json(res_obj)
+    static procuraPesquisa(id) {
+        return cliente.query("SELECT * FROM pesquisa WHERE id = $1", [id]); 
+    }
+    
+    static procuraPerg(id) {
+        return cliente.query(`SELECT * FROM perguntas WHERE fk_pesquisa = $1`, [id])
     }
 
     // static adicionaPesquisa(){
