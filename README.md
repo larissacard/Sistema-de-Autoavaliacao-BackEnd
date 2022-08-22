@@ -36,13 +36,20 @@
 - Login
 ```
 https://aasa-senai.herokuapp.com/auth/login
-
 ``` 
 
 - User comum
 ```
 {
 	"cpf": "12301"
+}
+```
+
+-  User ADMIN
+```
+{
+	"cpf": "12302131",
+	"senha": "1201"
 }
 ```
 
