@@ -12,7 +12,7 @@ const authController = require('../controllers/auth');
 router.post('/cadastrar',
         body('nome').trim().isEmpty(),
         body('email').isEmail().withMessage('Email Inválido').custom(async (email)=>{
-            const user = await Root.find(email);
+            const user = await Root.procurarRoot(email);
             if(user[0].length > 0){
                 return Promise.reject('Email já existe!')
             }
