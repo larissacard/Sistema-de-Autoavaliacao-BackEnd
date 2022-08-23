@@ -79,7 +79,7 @@ São esperadas as seguintes entradas:
 - DELETAR User
 Para apagar um, é necessário acessar o seguinte endereço usando o método DELETE, sendo ":id" um identificador de um user:
 ```
-https://aasa-senai.herokuapp.com/auth/user/:id
+https://aasa-senai.herokuapp.com/user/:id
 ```
 Observações:
 
@@ -88,7 +88,7 @@ Observações:
 - EDITAR User
 Usando o método PUT, podemos acessar o seguinte endereço:
 ```
-https://aasa-senai.herokuapp.com/auth/user/:id
+https://aasa-senai.herokuapp.com/user/:id
 ```
 
 É necessario passar os seguintes campos:
@@ -135,7 +135,7 @@ Retorna todas as pesquisas que foram cadastradas em uma lista de objetos
 - Buscar Pesquisa Especifica
 Acessar a seguinte rota usando o método GET:
 ```
-https://aasa-senai.herokuapp.com/auth/pesquisa/:id
+https://aasa-senai.herokuapp.com/pesquisa/:id
 ```
 O retorno esperado é um objeto com as seguintes informações:
 - Dados (infomações básicas)
@@ -154,7 +154,7 @@ O retorno esperado é um objeto com as seguintes informações:
 - Deletar Pesquisa
 Para apagar uma, é necessário acessar o seguinte endereço usando o método DELETE, sendo ":id" um identificador de uma pesquisa:
 ```
-https://aasa-senai.herokuapp.com/auth/pesquisa/:id
+https://aasa-senai.herokuapp.com/pesquisa/:id
 ```
 
 - Editar Pesquisa
