@@ -99,7 +99,7 @@ exports.login = async(req,res,next) => {
                 userId: guardaUser.id,
                 tipo: guardaUser.tipo
             },
-            'secretfortoken',
+            process.env.SECRET,
             { expiresIn: '2h' }
             );
             
