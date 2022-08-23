@@ -3,7 +3,7 @@
 
 # Desenvolvedores
 <ul>
-  <li><a href="https://github.com/Brun0Nasc">Jonas Esticado</a></li>
+  <li><a href="https://github.com/Brun0Nasc">Bruno Nascimento</a></li>
   <li><a href="https://github.com/caiosousaf">Caio Sousa</a></li>
   <li><a href="https://github.com/larissacard">Larissa Cardoso</a></li>
   <li><a href="https://github.com/VinicciusSantos">Vinicius Guedes</a></li>
