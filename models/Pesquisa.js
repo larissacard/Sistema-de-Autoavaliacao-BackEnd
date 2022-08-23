@@ -18,11 +18,5 @@ module.exports = class Pesquisa {
     static deletePesquisa(id){
         return cliente.query(`DELETE FROM pesquisa WHERE id = $1`, [id])
     }
-    // static adicionaPesquisa(){
-    //     for(let j in colaboradores) {
-    //         await pool.query(`insert into colaboradores(id_equipe, nome_colaborado, atribuicao)
-    //             values($1, $2, $3)`, [colaboradores[j].id_equipe, colaboradores[j].nome_colaborado, colaboradores[j].atribuicao]);
-    //     }
-    // }
 }
 

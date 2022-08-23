@@ -18,5 +18,10 @@ exports.pesquisaEspecifica = async(req, res, next) => {
 }
 
 exports.deletePesquisa = async(req, res, next) => {
-
+    const id = req.params.id
+    try {
+        Pesquisa.deletePesquisa(id)
+    } catch (err) {
+        return res.status(500).json(err)
+    }
 }
