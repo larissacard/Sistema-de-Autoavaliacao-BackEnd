@@ -46,15 +46,15 @@ São esperadas as seguintes entradas:
 - User comum
 ```json
 {
-	"cpf": "12345678900"
+	"cpf": "92395178901"
 }
 ```
 
 -  User ADMIN
 ```json
 {
-	"cpf": "12345678900",
-	"senha": "1234"
+	"cpf": "12395178901",
+	"senha": "123123123"
 }
 ```
 
@@ -65,13 +65,14 @@ https://aasa-senai.herokuapp.com/auth/cadastrar
 ``` 
 
 São esperadas as seguintes entradas:
+
 ```json
 {
-	"nome": "larissa",
-	"email": "larissa@gmail.com",
-	"senha": "1234",
-	"tipo": "1",
-	"cpf": "12345678900",
+	"nome": "",
+	"email": "",
+	"senha": "",
+	"tipo": "",
+	"cpf": "",
 	"foto": ""
 }
 ```
@@ -112,23 +113,22 @@ Retorna todas as pesquisas que foram cadastradas em uma lista de objetos
 ```json
 [
 	{
-		"id": "1",
-		"descricao": "Descricao aqui",
-		"tipo_pesquisa": "",
-		"id_usuario": "1"
+		"id": "8",
+		"descricao": "Saber quem gosta de Kiwi",
+		"fk_tipo_pesquisa": 5,
+		"fk_usuario": 6,
+		"fk_grupo": "5",
+		"data_inicio": null,
+		"data_fim": null,
+		"created_at": "2022-08-23T18:33:00.338Z",
+		"updated_at": "2022-08-23T18:33:00.338Z",
+		"titulo": "Pesquisa 1",
+		"perguntas": []
 	}
 	{
-		"id": "2",
-		"descricao": "Descricao aqui",
-		"tipo_pesquisa": "",
-		"id_usuario": "2"
+
 	}
-	{
-		"id": "3",
-		"descricao": "Descricao aqui",
-		"tipo_pesquisa": "",
-		"id_usuario": "1"
-	}
+	
 ]
 ```
 
@@ -144,20 +144,28 @@ O retorno esperado é um objeto com as seguintes informações:
 
 ```json
 {
-	"id": "",
-	"descricao": "",
-	"tipo_pesquisa": "",
-	"id_usuario": ""
+	"id": "8",
+	"descricao": "Saber quem gosta de Kiwi",
+	"fk_tipo_pesquisa": 5,
+	"fk_usuario": 6,
+	"fk_grupo": "5",
+	"data_inicio": null,
+	"data_fim": null,
+	"created_at": "2022-08-23T18:33:00.338Z",
+	"updated_at": "2022-08-23T18:33:00.338Z",
+	"titulo": "Pesquisa 1",
+	"perguntas": []
 }
 ```
 
 - Deletar Pesquisa
 Para apagar uma, é necessário acessar o seguinte endereço usando o método DELETE, sendo ":id" um identificador de uma pesquisa:
+
 ```
 https://aasa-senai.herokuapp.com/pesquisa/:id
 ```
 
-- Editar Pesquisa
+	- ":id" se refere ao código identificador de uma pesquisa
 
 
 
