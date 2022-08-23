@@ -2,8 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
-const authRoutes = require('../routes/auth');
-const pesquisa = require('../routes/pesquisas')
+const authRoutes = require('./routes/auth');
+const pesquisa = require('./routes/pesquisas')
 // const { route } = require('../routes/auth');
 
 const host = '0.0.0.0';

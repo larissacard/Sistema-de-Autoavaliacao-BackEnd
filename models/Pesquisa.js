@@ -15,6 +15,9 @@ module.exports = class Pesquisa {
         return cliente.query(`SELECT * FROM perguntas WHERE fk_pesquisa = $1`, [id])
     }
 
+    static deletePesquisa(id){
+        return cliente.query(`DELETE FROM pesquisa WHERE id = $1`, [id])
+    }
     // static adicionaPesquisa(){
     //     for(let j in colaboradores) {
     //         await pool.query(`insert into colaboradores(id_equipe, nome_colaborado, atribuicao)

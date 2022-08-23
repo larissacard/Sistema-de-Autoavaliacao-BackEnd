@@ -1,6 +1,6 @@
 const Pesquisa = require('../models/Pesquisa')
 
-exports.pesquisa = async(req, res, next) => {
+exports.pesquisaEspecifica = async(req, res, next) => {
     const id = req.params.id
 
     try {
@@ -15,4 +15,8 @@ exports.pesquisa = async(req, res, next) => {
         }
         next(err)
     }
+}
+
+exports.deletePesquisa = async(req, res, next) => {
+
 }
