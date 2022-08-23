@@ -1,4 +1,4 @@
-const cliente = require("../server/infra/connection");
+const cliente = require("../infra/connection");
 
 module.exports = class Pesquisa {
     constructor(descricao, titulo, id) {
