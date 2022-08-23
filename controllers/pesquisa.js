@@ -2,7 +2,8 @@ const Pesquisa = require('../models/Pesquisa')
 
 exports.getAll = async(req, res, next) => {
     try {
-        Pesquisa.getAll()
+        const pesquisas = await Pesquisa.getAll()
+        return res.status(200).json(pesquisas.rows)
     } catch (error) {
         return res.status(400).json(error)
     }
