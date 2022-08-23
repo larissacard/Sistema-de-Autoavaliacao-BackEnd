@@ -6,12 +6,16 @@ module.exports = class Pesquisa {
         this.titulo = titulo;
         this.descricao = descricao;
     }
+
+    static getAll(){
+        return cliente.query("SELECT * from pesquisa ORDER BY id")
+    }
  
     static procuraPesquisa(id) {
         return cliente.query("SELECT * FROM pesquisa WHERE id = $1", [id]); 
     }
     
-    static procuraPerg(id) {
+    static getPerguntasPesquisa(id) {
         return cliente.query(`SELECT * FROM perguntas WHERE fk_pesquisa = $1`, [id])
     }
 
