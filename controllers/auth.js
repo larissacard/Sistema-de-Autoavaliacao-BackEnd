@@ -88,9 +88,7 @@ exports.login = async(req,res,next) => {
         const confirmaSenha = await bcrypt.compare(senha, guardaUser.senha);
     
         if(!confirmaSenha){
-            const error = new Error('Senha incorreta!');
-            error.statusCode = 401;
-            throw error;
+            return res.status(400).json({message: `Senha Incorreta`})
         }
         
         const token = jwt.sign(
