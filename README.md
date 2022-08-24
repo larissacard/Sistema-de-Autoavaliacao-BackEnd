@@ -24,16 +24,16 @@
 - Foi desenvolvido com [NodeJs](https://nodejs.org/en/), [Express](https://expressjs.com/pt-br/) e [PostgreSQL](https://www.postgresql.org);
 
 # Funcionalidades
-- SISTEMAS DE GESTÃO DE USUÁRIOS 
-- PERFIS DE USUÁRIOS
-  - ROOT
-  - ADMINISTRADOR 
-  - CLIENTE
-  - COLABORADOR
-- GESTÃO DE PESQUISA DE SATISFAÇÃO 
-  - metodologia NPS
+- [x] SISTEMAS DE GESTÃO DE USUÁRIOS 
+- [x] PERFIS DE USUÁRIOS
+- [x] ROOT
+- [x] ADMINISTRADOR 
+- [x] CLIENTE
+- [x] COLABORADOR
+- [x] GESTÃO DE PESQUISA DE SATISFAÇÃO 
+- [x] metodologia NPS
 
-# Rotas
+# User
 
 ## Login
 Usando o método POST podemos acessar o seguinte endereço:
@@ -58,7 +58,7 @@ São esperadas as seguintes entradas:
 }
 ```
 
-## User
+## Cadastrar User
 Usando o método POST podemos acessar o seguinte endereço:
 ```
 https://aasa-senai.herokuapp.com/auth/cadastrar
@@ -77,7 +77,7 @@ São esperadas as seguintes entradas:
 }
 ```
 
-- DELETAR User
+## DELETAR User
 Para apagar um, é necessário acessar o seguinte endereço usando o método DELETE, sendo ":id" um identificador de um user:
 ```
 https://aasa-senai.herokuapp.com/user/:id
@@ -86,7 +86,7 @@ Observações:
 
 	- ":id" se refere ao código identificador de um user
 
-- EDITAR User
+## EDITAR User
 Usando o método PUT, podemos acessar o seguinte endereço:
 ```
 https://aasa-senai.herokuapp.com/user/:id
@@ -107,10 +107,35 @@ https://aasa-senai.herokuapp.com/user/:id
 }
 ```
 
-## Pesquisa
+# Pesquisa
 
-- Buscar Pesquisas
+## Cadastrar Pesquisa
+Usando o método POST podemos acessar o seguinte endereço:
+
+```
+https://aasa-senai.herokuapp.com/pesquisa
+```
+
+São esperadas as seguintes entradas:
+
+```json
+	{
+		"descricao": "",
+		"fk_tipo_pesquisa": "",
+		"fk_usuario": "",
+		"fk_grupo": "",
+		"titulo": "",
+
+	}
+```
+
+
+## Buscar Pesquisas
 Retorna todas as pesquisas que foram cadastradas em uma lista de objetos
+
+```
+https://aasa-senai.herokuapp.com/pesquisa
+```
 
 ```json
 [
@@ -134,11 +159,12 @@ Retorna todas as pesquisas que foram cadastradas em uma lista de objetos
 ]
 ```
 
-- Buscar Pesquisa Especifica
+## Buscar Pesquisa Especifica
 Acessar a seguinte rota usando o método GET:
 ```
 https://aasa-senai.herokuapp.com/pesquisa/:id
 ```
+
 O retorno esperado é um objeto com as seguintes informações:
 - Dados (infomações básicas)
 - Perguntas
@@ -160,7 +186,7 @@ O retorno esperado é um objeto com as seguintes informações:
 }
 ```
 
-- Deletar Pesquisa
+## Deletar Pesquisa
 Para apagar uma, é necessário acessar o  seguinte endereço usando o método DELETE, sendo ":id" um identificador de uma pesquisa:
 
 ```
@@ -169,7 +195,7 @@ https://aasa-senai.herokuapp.com/pesquisa/:id
 
 	- ":id" se refere ao código identificador de uma pesquisa
 
-- Editar/Atualidar Pesquisa
+## Editar/Atualidar Pesquisa
 Usando o método PUT, podemos acessar o seguinte endereço:
 
 ```
