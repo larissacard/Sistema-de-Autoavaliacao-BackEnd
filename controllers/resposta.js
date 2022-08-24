@@ -16,7 +16,7 @@ exports.getResposta = async(req, res, next) => {
     try {
         const dados_resposta = await Resposta.getResposta(id);
         const perguntas = await Resposta.getRespostaPergunta(id);
-        const res_obj = resposta.rows
+        const res_obj = dados_resposta.rows
         return res.status(200).json(res_obj)
     } catch(error){
         return res.status(400).json(error)
@@ -37,9 +37,6 @@ exports.postResposta = async(req, res, next) => {
 
         res.status(201).json({message: 'Resposta registrada'})
     } catch (err) {
-        if (!err.statusCode) {
-            err.statusCode = 500;
-        }
-        next(err)
+        return res.status(500).json(err)
     }
 }

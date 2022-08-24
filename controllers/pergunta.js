@@ -9,10 +9,7 @@ exports.perguntaEspecifica = async(req, res, next) => {
         res_obj.perguntas = perguntas.rows
         return res.status(200).json(res_obj)
     } catch (err) {
-        if(!err.statusCode){
-            err.statusCode = 500;
-        }
-        next(err)
+        return res.status(500).json(err)
     }
 }
 
@@ -53,9 +50,6 @@ exports.postPergunta = async (req, res, next) => {
         const perguntaCriada = await Pergunta.postPergunta(dadosPergunta);
         res.status(201).json({ message: 'Success Search Registered' });
     } catch (err) {
-        if (!err.statusCode) {
-            err.statusCode = 500;
-        }
-        next(err)
+        return res.status(500).json(err)
     }
 }
