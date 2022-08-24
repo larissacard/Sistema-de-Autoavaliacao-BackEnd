@@ -15,13 +15,12 @@ module.exports = class Pergunta {
         return cliente.query("SELECT * FROM perguntas WHERE id = $1", [id]); 
     }
     
-
     static deletePergunta(id){
         return cliente.query(`DELETE FROM perguntas WHERE id = $1`, [id])
     }
 
     static putPergunta(enunciado, fk_pesquisa, id){
-        return cliente.query(`UPDATE pergunta set enunciado= $1, fk_pesquisa = $2 WHERE id = $3`, [enunciado, fk_pesquisa, id])
+        return cliente.query(`UPDATE pergunta set enunciado = $1, fk_pesquisa = $2 WHERE id = $3`, [enunciado, fk_pesquisa, id])
     }
 
     static postPergunta(pergunta) {
