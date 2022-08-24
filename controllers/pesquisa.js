@@ -30,6 +30,7 @@ exports.deletePesquisa = async(req, res, next) => {
     const id = req.params.id
     try {
         Pesquisa.deletePesquisa(id)
+        return res.status(200)
     } catch (err) {
         return res.status(500).json(err)
     }
@@ -40,6 +41,7 @@ exports.putPesquisa = async(req, res, next) => {
     const body = req.body
     try {
         Pesquisa.putPesquisa( body.fk_grupo, body.titulo, body.descricao, body.fk_tipo_pesquisa, id )
+        return res.status(200).json({message: "Atualizado"})
     } catch (err) {
         return res.status(500).json(err)
     }
