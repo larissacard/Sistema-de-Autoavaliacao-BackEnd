@@ -20,10 +20,10 @@ module.exports = class Pergunta {
     }
 
     static putPergunta(enunciado, fk_pesquisa, id){
-        return cliente.query(`UPDATE pergunta set enunciado = $1, fk_pesquisa = $2 WHERE id = $3`, [enunciado, fk_pesquisa, id])
+        return cliente.query(`UPDATE perguntas set enunciado = $1, fk_pesquisa = $2 WHERE id = $3`, [enunciado, fk_pesquisa, id])
     }
 
     static postPergunta(pergunta) {
-        return cliente.query('INSERT INTO pergunta (enunciado, fk_pesquisa) values ($1, $2)', [ pergunta.enunciado, pergunta.fk_pesquisa]);
+        return cliente.query('INSERT INTO perguntas (enunciado, fk_pesquisa) values ($1, $2)', [ pergunta.enunciado, pergunta.fk_pesquisa]);
     }
 }

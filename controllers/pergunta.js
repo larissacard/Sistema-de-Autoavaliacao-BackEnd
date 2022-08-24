@@ -1,5 +1,4 @@
 const Pergunta = require('../models/Pergunta')
-const validationResult = require('express-validator')
 
 exports.perguntaEspecifica = async(req, res, next) => {
     const id = req.params.id

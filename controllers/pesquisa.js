@@ -1,5 +1,4 @@
 const Pesquisa = require('../models/Pesquisa')
-const validationResult = require('express-validator')
 
 exports.getAll = async(req, res, next) => {
     try {

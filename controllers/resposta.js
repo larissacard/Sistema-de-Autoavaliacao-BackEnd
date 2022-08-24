@@ -1,4 +1,3 @@
-
 const Resposta = require('../models/Resposta')
 
 exports.getAll =  async(req, res, next) => {
@@ -15,8 +14,9 @@ exports.getResposta = async(req, res, next) => {
 
     try {
         const dados_resposta = await Resposta.getResposta(id);
-        const perguntas = await Resposta.getRespostaPergunta(id);
+        const respostas = await Resposta.getRespostaPergunta(id);
         const res_obj = dados_resposta.rows
+        res_obj.respostas = respostas.rows
         return res.status(200).json(res_obj)
     } catch(error){
         return res.status(400).json(error)
@@ -33,9 +33,9 @@ exports.postResposta = async(req, res, next) => {
             nota: nota
         }
 
-        const respostaEnviada =  await Resposta.postResposta(dadosResposta);
+        const respostaEnviada = await Resposta.postResposta(dadosResposta);
 
-        res.status(201).json({message: 'Resposta registrada'})
+        res.status(201).json(respostaEnviada)
     } catch (err) {
         return res.status(500).json(err)
     }
