@@ -14,9 +14,9 @@ exports.getResposta = async(req, res, next) => {
 
     try {
         const dados_resposta = await Resposta.getResposta(id);
-        const resposta = await Resposta. getRespostaPergunta(id);
+        const respostas = await Resposta.getRespostaPergunta(id);
         const res_obj = dados_resposta.rows
-        res_obj.resposta = resposta.rows
+        res_obj.respostas = respostas.rows
         return res.status(200).json(res_obj)
     } catch(error){
         return res.status(400).json(error)
@@ -24,7 +24,6 @@ exports.getResposta = async(req, res, next) => {
 }
 
 exports.postResposta = async(req, res, next) => {
-
     const {fk_usuario, fk_pergunta, nota} = req.body
 
     try {
@@ -35,10 +34,9 @@ exports.postResposta = async(req, res, next) => {
         }
 
         const respostaEnviada = await Resposta.postResposta(dadosResposta);
- 
 
-        res.status(201).json({ message: 'Success Search Registered' });
+        res.status(201).json(respostaEnviada)
     } catch (err) {
-        return res.status(500).json(err);
-    } 
+        return res.status(500).json(err)
+    }
 }
