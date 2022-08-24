@@ -1,7 +1,7 @@
 const cliente = require("../infra/connection");
 
 module.exports = class Resposta {
-    constructor(id, fk_usuario, fk_pergunta, nota, create_at) {
+    constructor(id, fk_usuario, fk_pergunta, nota) {
         this.id = id;
         this.fk_usuario = fk_usuario;
         this.fk_pergunta = fk_pergunta;
