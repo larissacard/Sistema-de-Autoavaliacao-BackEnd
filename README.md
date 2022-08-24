@@ -169,7 +169,28 @@ https://aasa-senai.herokuapp.com/pesquisa/:id
 
 	- ":id" se refere ao código identificador de uma pesquisa
 
+- Editar/Atualidar Pesquisa
+Usando o método PUT, podemos acessar o seguinte endereço:
 
+```
+https://aasa-senai.herokuapp.com/pesquisa/:id
+```
+
+	- ":id" se refere ao código identificador da equipe
+
+É necessario passar os seguintes campos: 
+
+```json
+	{	
+		"descricao": "Saber quem gosta de morango",
+		"fk_tipo_pesquisa": 5,
+		"fk_usuario": 6,
+		"fk_grupo": "5",
+		"titulo": "Pesquisa 1",
+		"perguntas": []
+
+	}
+```
 
 
 
