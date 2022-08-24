@@ -125,13 +125,17 @@ São esperadas as seguintes entradas:
 		"fk_usuario": "",
 		"fk_grupo": "",
 		"titulo": "",
-		
+
 	}
 ```
 
 
 ## Buscar Pesquisas
 Retorna todas as pesquisas que foram cadastradas em uma lista de objetos
+
+```
+https://aasa-senai.herokuapp.com/pesquisa
+```
 
 ```json
 [
