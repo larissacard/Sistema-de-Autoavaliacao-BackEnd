@@ -4,9 +4,7 @@ exports.perguntaEspecifica = async(req, res, next) => {
     const id = req.params.id
     try {
         const dados_pergunta = await Pergunta.procuraPergunta(id);
-        const res_obj = dados_pergunta.rows[0]
-        res_obj.perguntas = perguntas.rows
-        return res.status(200).json(res_obj)
+        return res.status(200).json(dados_pergunta.rows)
     } catch (err) {
         return res.status(500).json(err)
     }
