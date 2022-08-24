@@ -1,4 +1,5 @@
 const Pesquisa = require('../models/Pesquisa')
+const validationResult = require('express-validator')
 
 exports.getAll = async(req, res, next) => {
     try {
@@ -44,5 +45,33 @@ exports.putPesquisa = async(req, res, next) => {
         return res.status(200).json({message: "Atualizado"})
     } catch (err) {
         return res.status(500).json(err)
+    }
+}
+
+exports.postPesquisa = async (req, res, next) => {
+    // const errors = validationResult(req);
+
+    // if (errors.isEmpty()) return
+    const { titulo, descricao, fk_usuario, fk_tipo_pesquisa, fk_grupo } = req.body
+
+    try {
+
+        const dadosPequisa = {
+            titulo: titulo,
+            descricao: descricao,
+            fk_usuario: fk_usuario,
+            fk_tipo_pesquisa: fk_tipo_pesquisa,
+            fk_grupo: fk_grupo
+        }
+
+        const pesquisaCriada = await Pesquisa.postPesquisa(dadosPequisa);
+
+        res.status(201).json({ message: 'Success Search Registered' });
+
+    } catch (err) {
+        if (!err.statusCode) {
+            err.statusCode = 500;
+        }
+        next(err)
     }
 }

@@ -8,6 +8,7 @@ module.exports = class Pesquisa {
         this.descricao = descricao;
         this.fk_grupo = fk_grupo;
         this.fk_tipo_pesquisa = fk_tipo_pesquisa;
+        this.fk_usuario = fk_usuario;
 
     }
 
@@ -29,6 +30,10 @@ module.exports = class Pesquisa {
 
     static putPesquisa(fk_grupo, titulo, descricao, fk_tipo_pesquisa, id){
         return cliente.query(`UPDATE pesquisa set fk_grupo = $1, titulo = $2, descricao = $3, fk_tipo_pesquisa = $4 WHERE id = $5`, [fk_grupo, titulo, descricao, fk_tipo_pesquisa, id])
+    }
+
+    static postPesquisa(pesquisa) {
+        return cliente.query('INSERT INTO pesquisa (titulo, descricao, fk_grupo, fk_tipo_pesquisa, fk_usuario) values ($1, $2, $3, $4, $5)', [pesquisa.titulo, pesquisa.descricao, pesquisa.fk_grupo, pesquisa.fk_tipo_pesquisa, pesquisa.fk_usuario]);
     }
 }
 
