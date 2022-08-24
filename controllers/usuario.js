@@ -8,3 +8,14 @@ exports.getAll = async(req, res, next) => {
         return res.status(400).json(error)
     }
 }
+
+exports.getPesquisas = async(req, res, next) => {
+    const id = req.params.id
+
+    try {
+        const pesquisas = await Usuario.getPesquisas(id)
+        return res.status(200).json(pesquisas.rows)
+    } catch (error) {
+        return res.status(400).json(err)
+    }
+}

@@ -15,5 +15,14 @@ module.exports = class Usuario {
     static getAll(){
         return cliente.query("SELECT * from usuario ORDER BY id")
     }
+
+    static getPesquisas(id){
+        return cliente
+                    .query(`SELECT pe.* FROM usuario AS us
+                            INNER JOIN grupo_usuario AS gu ON gu.fk_usuario = us.id
+                            INNER JOIN grupo AS gr ON gr.id = gu.fk_grupo
+                            INNER JOIN pesquisa AS pe ON pe.fk_grupo = gr.id
+                            WHERE us.id = $1`, [id])
+    }
 }
 
