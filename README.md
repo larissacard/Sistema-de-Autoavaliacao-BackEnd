@@ -92,6 +92,8 @@ Usando o método PUT, podemos acessar o seguinte endereço:
 https://aasa-senai.herokuapp.com/user/:id
 ```
 
+	- ":id" se refere ao código identificador de um user
+
 É necessario passar os seguintes campos:
 
 ```json
@@ -159,7 +161,7 @@ O retorno esperado é um objeto com as seguintes informações:
 ```
 
 - Deletar Pesquisa
-Para apagar uma, é necessário acessar o seguinte endereço usando o método DELETE, sendo ":id" um identificador de uma pesquisa:
+Para apagar uma, é necessário acessar o  seguinte endereço usando o método DELETE, sendo ":id" um identificador de uma pesquisa:
 
 ```
 https://aasa-senai.herokuapp.com/pesquisa/:id

@@ -34,3 +34,13 @@ exports.deletePesquisa = async(req, res, next) => {
         return res.status(500).json(err)
     }
 }
+
+exports.putPesquisa = async(req, res, next) => {
+    const id = req.params.id
+    const body = req.body
+    try {
+        Pesquisa.putPesquisa( body.fk_grupo, body.titulo, body.descricao, body.fk_tipo_pesquisa, id )
+    } catch (err) {
+        return res.status(500).json(err)
+    }
+}
