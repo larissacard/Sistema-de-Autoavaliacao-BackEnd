@@ -1,4 +1,4 @@
-const Grupo = require('../models/Grupo')
+const Grupo = require('../models/grupo')
 
 exports.getAll = async (req, res, next) => {
     try {
