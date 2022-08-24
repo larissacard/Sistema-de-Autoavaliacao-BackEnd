@@ -7,6 +7,7 @@ const pesquisa = require('./routes/pesquisas')
 const usuario = require('./routes/usuarios')
 const pergunta = require('./routes/perguntas')
 const resposta = require('./routes/resposta')
+const grupo = require('./routes/grupo')
 // const { route } = require('../routes/auth');
 
 const host = '0.0.0.0';
@@ -24,6 +25,7 @@ app.use(pesquisa)
 app.use(usuario)
 app.use(pergunta)
 app.use(resposta)
+app.use(grupo)
 
 app.listen(port, host, () => {
     console.log(`API funcionando no host:`, host, `e na porta:`, port)
