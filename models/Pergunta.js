@@ -26,4 +26,13 @@ module.exports = class Pergunta {
     static postPergunta(pergunta) {
         return cliente.query('INSERT INTO perguntas (enunciado, fk_pesquisa) values ($1, $2)', [ pergunta.enunciado, pergunta.fk_pesquisa]);
     }
+
+    static getRespostas(id){
+        return cliente
+                    .query(`SELECT
+                            re.id as res_id, us.id as user_id, us.nome as user_name, re.nota
+                            FROM respostas as re
+                            INNER JOIN usuario as us ON us.id = re.fk_usuario
+                            WHERE fk_pergunta = $1`, [id])
+    }
 }
