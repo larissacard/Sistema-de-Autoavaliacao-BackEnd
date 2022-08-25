@@ -68,3 +68,24 @@ exports.postPesquisa = async (req, res, next) => {
         return res.status(500).json(err)
     }
 }
+
+exports.getOneResponse = async (req, res, next) => {
+    // Retorna as respostas que um usuario especifico fez
+    // em uma pesquisa
+
+    const user = req.params.user
+    const pesquisa = req.params.pesquisa
+
+    try {
+        const dados_pesquisa = await Pesquisa.procuraPesquisa(pesquisa)
+        const respostas = await Pesquisa.getOneResponse(user, pesquisa)
+
+        // Retornando um objeto de respostas
+        let obj = dados_pesquisa.rows[0]
+        obj.respostas = respostas.rows
+
+        return res.status(200).json(obj)
+    } catch (error) {
+        return res.status(400).json(error)
+    }
+}

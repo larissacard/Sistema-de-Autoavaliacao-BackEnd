@@ -35,5 +35,17 @@ module.exports = class Pesquisa {
     static postPesquisa(pesquisa) {
         return cliente.query('INSERT INTO pesquisa (titulo, descricao, fk_grupo, fk_tipo_pesquisa, fk_usuario) values ($1, $2, $3, $4, $5)', [pesquisa.titulo, pesquisa.descricao, pesquisa.fk_grupo, pesquisa.fk_tipo_pesquisa, pesquisa.fk_usuario]);
     }
+
+    static getOneResponse(user, pesquisa){
+        // Retorna as respostas que um usuario deu para uma pesquisa
+        return cliente
+                    .query(`SELECT 
+                            res.id as res_id, perg.enunciado, res.nota, us.id AS user_id, us.nome AS user_nome
+                            FROM respostas AS res
+                            INNER JOIN perguntas AS perg ON perg.id = res.fk_pergunta
+                            INNER JOIN pesquisa AS pesq ON pesq.id = perg.fk_pesquisa
+                            INNER JOIN usuario AS us ON us.id = res.fk_usuario
+                            WHERE pesq.id = $1 and us.id = $2`, [pesquisa, user])
+    }
 }
 
