@@ -243,8 +243,8 @@ https://aasa-senai.herokuapp.com/pesquisa/:id
 
 ```json
 {
-	"titulo": "Aloha",
-	"descricao": "aloha para todos, todas e todes",
+	"titulo": "Alohe",
+	"descricao": "alohe todes",
 	"fk_grupo": 5,
 	"fk_tipo_pesquisa": 5,
 	"fk_usuario": 3
