@@ -9,11 +9,11 @@ module.exports = class Resposta {
     }
 
     static getAll(){
-        return cliente.query(`SELECT * FROM respostas ORDER BY id`);
+        return cliente.query("SELECT * FROM respostas ORDER BY id");
     }
 
     static getResposta(id){
-        return cliente.query(`SELECT * FROM respostas WHERE id= $1"`, [id]);
+        return cliente.query(`SELECT * FROM respostas WHERE id= $1`, [id]);
     }
 
     static getRespostaPergunta(id) {
@@ -21,6 +21,6 @@ module.exports = class Resposta {
     }
 
     static postResposta(resposta) {
-        return cliente.query(`INSERT INTO resposta (fk_usuario, fk_pergunta, nota) values ($1, $2, $3)`, [resposta.fk_usuario, resposta.fk_pergunta, resposta.nota]);
+        return cliente.query(`INSERT INTO respostas (fk_usuario, fk_pergunta, nota) values ($1, $2, $3)`, [resposta.fk_usuario, resposta.fk_pergunta, resposta.nota]);
     }
 }   
