@@ -16,6 +16,10 @@ module.exports = class Usuario {
         return cliente.query("SELECT * from usuario ORDER BY id")
     }
 
+    static getOne(id){
+        return cliente.query("SELECT * from usuario WHERE id = $1", [id])
+    }
+
     static getPesquisas(id){
         return cliente
                     .query(`SELECT pe.* FROM usuario AS us
