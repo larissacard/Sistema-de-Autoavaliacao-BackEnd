@@ -62,10 +62,6 @@ exports.login = async(req,res,next) => {
 
     if(user.rows.length !== 1){
         return res.status(404).json({message: `Usuário não encontrado`})
-        // const error = new Error('Usuário não encontrado!');
-        // error.statusCode = 401;
-        
-        // throw error;
     }
 
     if (user.rows[0].tipo == 3) {
@@ -77,12 +73,12 @@ exports.login = async(req,res,next) => {
             process.env.SECRET,
             { expiresIn: '2h' }
             );
-        return res.status(200).json({message: "Login Finalizado", token: token, userId: guardaUser.id})
+        return res.status(200).json({message: "Login Finalizado", token: token, userId: guardaUser.id, tipo: 3})
 
     } else {
 
         if (!senha) {
-            return res.status(401).json({message: "Insira uma Senha"})
+            return res.status(100).json({message: "Insira uma Senha"})
         }
 
         const confirmaSenha = await bcrypt.compare(senha, guardaUser.senha);
