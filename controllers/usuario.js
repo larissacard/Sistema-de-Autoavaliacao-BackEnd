@@ -16,6 +16,10 @@ exports.getPesquisas = async(req, res, next) => {
         const pesquisas = await Usuario.getPesquisas(id)
         return res.status(200).json(pesquisas.rows)
     } catch (error) {
+        const usuario = await Usuario.getOne(id)
+        if (usuario.rowCount === 0) {
+            return res.status(404).json({message: `Usuario ${id} não encontrado`})
+        }
         return res.status(400).json(err)
     }
 }
