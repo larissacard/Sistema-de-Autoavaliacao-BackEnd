@@ -78,7 +78,7 @@ exports.login = async(req,res,next) => {
     } else {
 
         if (!senha) {
-            return res.status(100).json({message: "Insira uma Senha"})
+            return res.status(401).json({message: "Insira uma Senha"})
         }
 
         const confirmaSenha = await bcrypt.compare(senha, guardaUser.senha);
