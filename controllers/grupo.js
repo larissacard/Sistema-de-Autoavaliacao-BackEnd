@@ -9,6 +9,17 @@ exports.getAll = async (req, res, next) => {
     }
 }
 
-// exports.getOne = async (req, res, next) => {
-    
-// }
+exports.getOne = async (req, res, next) => {
+    const id = req.params.id
+    try {
+        const grupo = await Grupo.getOne(id)
+        const pessoas = await Grupo.getPessoas(id)
+
+        // Montando um Objeto para a resposta
+        let res = grupo.rows[0]
+        res.pessoas = pessoas.rows
+        return res.status(200).json(res)
+    } catch (error) {
+        
+    }
+}
