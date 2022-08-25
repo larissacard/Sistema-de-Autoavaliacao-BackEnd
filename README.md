@@ -17,6 +17,10 @@
 - [Menu](#menu)
 - [Sobre o Sistema](#sobre-o-sistema)
 - [Funcionalidades](#funcionalidades)
+- [User](#user)
+- [Pesquisa](#pesquisa)
+- [Perguntas](#perguntas)
+- [Resposta](#resposta)
 
 # Sobre o Sistema
 - O Sistema de Avaliação e Pesquisa -SAP deve ser capaz de gerenciar avaliações de desempenho  e pesquisas de satisfação a ser executado com colaboradores e cliente fazendo uso de diversas metodologias.
