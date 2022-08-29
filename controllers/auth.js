@@ -1,9 +1,6 @@
 const { validationResult } = require('express-validator');
-
 const bcrypt = require('bcrypt');
-
 const jwt = require('jsonwebtoken');
-
 const Root = require('../models/Root');
 
 exports.cadastrar = async(req, res, next) => {
@@ -29,6 +26,11 @@ exports.cadastrar = async(req, res, next) => {
             return res.status(400).json({message: "Insira uma Senha"})
         }
 
+        const qtd_emails = await Root.procurarRootEmail(email)
+        if (qtd_emails.rowCount > 0) {
+            return res.status(400).json({message: "Email já cadastrado"})
+        }
+
         const criptografaSenha = await bcrypt.hash(senha, 12);
 
         const detalhesUsuario = {
@@ -40,7 +42,11 @@ exports.cadastrar = async(req, res, next) => {
             foto: foto
         }
 
-       const usuarioCriado = await Root.adicionaRoot(detalhesUsuario);
+        try {
+            await Root.adicionaRoot(detalhesUsuario);
+        } catch (error) {
+            return res.status(400).json(error)
+        }
 
        res.status(201).json({ message: 'Success Registered' });
         
