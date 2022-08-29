@@ -14,7 +14,7 @@ module.exports = class Root {
         return cliente.query("SELECT * from public.usuario WHERE cpf = $1", [cpf]);
     }
 
-    static procurarRootEmail(cpf){
+    static procurarRootEmail(email){
         return cliente.query("SELECT * from public.usuario WHERE email = $1", [email]);
     }
 
