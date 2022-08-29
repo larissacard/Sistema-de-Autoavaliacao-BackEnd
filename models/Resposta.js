@@ -9,7 +9,7 @@ module.exports = class Resposta {
     }
 
     static getAll(){
-        return cliente.query("SELECT * FROM respostas ORDER BY id");
+        return cliente.query(`SELECT * FROM respostas ORDER BY id`);
     }
 
     static getResposta(id){
