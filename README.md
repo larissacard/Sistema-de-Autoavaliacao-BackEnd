@@ -50,15 +50,15 @@ São esperadas as seguintes entradas:
 - User comum
 ```json
 {
-	"cpf": "92395178901"
+	"cpf": "12312312333"
 }
 ```
 
 -  User ADMIN
 ```json
 {
-	"cpf": "12395178901",
-	"senha": "123123123"
+	"cpf": "12312312344",
+	"senha": "12312312344"
 }
 ```
 
@@ -322,6 +322,7 @@ O retorno esperado é um objeto com as seguintes informações:
 	{
 		"fk_usuario": "3",
 		"nota": 5,
+
 		"created_at": "2022-08-25T16:47:14.637Z",
 		"fk_pergunta": "9",
 		"id": 7
