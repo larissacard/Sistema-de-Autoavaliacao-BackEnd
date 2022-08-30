@@ -20,7 +20,7 @@ exports.getOne = async (req, res, next) => {
         res.pessoas = pessoas.rows
         return res.status(200).json(res)
     } catch (error) {
-        
+        return res.status(400).json(error)
     }
 }
 
