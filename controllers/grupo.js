@@ -11,17 +11,20 @@ exports.getAll = async (req, res, next) => {
 
 exports.getOne = async (req, res, next) => {
     const id = req.params.id
-    
-    const grupo = await Grupo.getOne(id)
-    const pessoas = await Grupo.getPessoas(id)
+    try {
+        const grupo = await Grupo.getOne(id)
+        const pessoas = await Grupo.getPessoas(id)
 
-    // Montando um Objeto para a resposta
-    let res = {}
-    res = grupo.rows[0]
-    res.pessoas = pessoas.rows
+        // Montando um Objeto para a resposta
+        let results = {}
+        results = grupo.rows[0]
+        results.pessoas = pessoas.rows
 
-    console.log(res)
-    return res.status(200).json(res)
+        console.log(res)
+        return res.status(200).json(results)
+    } catch (error) {
+        return res.status(400).json({erro: error})
+    }
 }
 
 exports.postGrupo = async(req, res, next) => {
