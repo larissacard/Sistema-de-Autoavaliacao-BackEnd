@@ -75,8 +75,8 @@ exports.login = async (req, res, next) => {
     if (user.rows[0].tipo == 3) {
         const token = jwt.sign(
             {
-                cpf: guardaUser.cpf,
-                userId: guardaUser.id
+                userId: guardaUser.id,
+                tipo: guardaUser.tipo
             },
             process.env.SECRET,
             { expiresIn: '2h' }
@@ -97,7 +97,6 @@ exports.login = async (req, res, next) => {
 
         const token = jwt.sign(
             {
-                cpf: guardaUser.cpf,
                 userId: guardaUser.id,
                 tipo: guardaUser.tipo
             },
