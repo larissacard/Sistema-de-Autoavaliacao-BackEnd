@@ -8,11 +8,11 @@ module.exports = class Grupo {
     }
 
     static getAll(){
-        return cliente.query(`SELECT * FROM grupo`)
+        return cliente.query(`SELECT * FROM grupo`);
     }
 
     static getOne(id){
-        return cliente.query(`SELECT * FROM grupo WHERE id = $1`, [id])
+        return cliente.query(`SELECT * FROM grupo WHERE id = $1`, [id]);
     }
 
     static getPessoas(id){
@@ -20,15 +20,19 @@ module.exports = class Grupo {
                     .query(`SELECT us.* FROM usuario AS us
                             INNER JOIN grupo_usuario AS gu ON gu.fk_usuario = us.id
                             INNER JOIN grupo AS gr ON gr.id = gu.fk_grupo
-                            WHERE gr.id = $1`, [id])
+                            WHERE gr.id = $1`, [id]);
     }
 
     static postGrupo(grupo){
-        return cliente.query(`INSERT INTO grupo (nome, status) values ($1, $2)`, [grupo.nome, grupo.status])
+        return cliente.query(`INSERT INTO grupo (nome, status) values ($1, $2)`, [grupo.nome, grupo.status]);
     }
 
     static putGrupo(grupo, id) {
-        return cliente.query(`UPDATE grupo  (nome, status, id) values ($1, $2, $3)`, [grupo.nome, grupo.status, id], )
+        return cliente.query(`UPDATE grupo  (nome, status, id) values ($1, $2, $3)`, [grupo.nome, grupo.status, id], );
+    }
+
+    static deleteGrupo(id){
+        return cliente.query(`DELETE FROM grupo WHERE id = $1`, [id]);
     }
 }
 

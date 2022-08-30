@@ -53,3 +53,13 @@ exports.putGrupo = async(req, res, next) => {
         return res.status(500).json(err)
     }
 }
+
+exports.deleteGrupo = async(req, res, next) => {
+    const id = req.params.id
+    try {
+       Grupo.deleteGrupo(id)
+        return res.status(200)
+    } catch (err) {
+        return res.status(500).json(err)
+    }
+}

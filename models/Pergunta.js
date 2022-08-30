@@ -12,7 +12,7 @@ module.exports = class Pergunta {
     //}
  
     static procuraPergunta(id) {
-        return cliente.query("SELECT * FROM perguntas WHERE id = $1", [id]); 
+        return cliente.query(`SELECT * FROM perguntas WHERE id = $1`, [id]); 
     }
     
     static deletePergunta(id){
@@ -24,7 +24,8 @@ module.exports = class Pergunta {
     }
 
     static postPergunta(pergunta) {
-        return cliente.query('INSERT INTO perguntas (enunciado, fk_pesquisa) values ($1, $2)', [ pergunta.enunciado, pergunta.fk_pesquisa]);
+        return cliente.query(`INSERT INTO perguntas (enunciado, fk_pesquisa) 
+                              values ($1, $2)`, [ pergunta.enunciado, pergunta.fk_pesquisa]);
     }
 
     static getRespostas(id){

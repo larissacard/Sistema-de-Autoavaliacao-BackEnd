@@ -7,5 +7,6 @@ router.get('/grupos', auth, grupo_controller.getAll)
 router.get('/grupos/:id', auth, grupo_controller.getOne)
 router.post('/grupos', auth, grupo_controller.postGrupo)
 router.put('/grupos/:id', auth, grupo_controller.putGrupo)
+router.delete('/grupos/:id', auth, grupo_controller.deleteGrupo)
 
 module.exports = router;

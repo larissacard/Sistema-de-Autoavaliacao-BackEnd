@@ -226,7 +226,7 @@ https://aasa-senai.herokuapp.com/pesquisa
 ```
 
 ## Deletar Pesquisa
-Para apagar uma, é necessário acessar o  seguinte endereço usando o método DELETE, sendo ":id" um identificador de uma pesquisa:
+Para apagar uma, é necessário acessar o  seguinte endereço usando o método DELETE
 
 ```
 https://aasa-senai.herokuapp.com/pesquisa/:id
@@ -278,6 +278,8 @@ Acessar a seguinte rota usando o método GET:
 ```
 https://aasa-senai.herokuapp.com/resposta/:id
 ```
+	- ":id" se refere ao código identificador da equipe
+
 O retorno esperado é um objeto com as seguintes informações:
 	- Dados (informações basicas)
 	- Resposta (todas as respostas dessa pergunta)
@@ -315,6 +317,8 @@ Acessar a seguinte rota usando o método GET:
 ```
 https://aasa-senai.herokuapp.com/resposta/:id
 ```
+	- ":id" se refere ao código identificador da equipe
+
 O retorno esperado é um objeto com as seguintes informações:
 	- Dados (informações basicas)
 ```json
@@ -336,6 +340,128 @@ O retorno esperado é um objeto com as seguintes informações:
 	}
 ]
 ```
+# Grupos
 
+## Cadastrar Grupo
+Usando o método POST podemos acessar o seguinte endereço:
+```
+https://aasa-senai.herokuapp.com/grupos
+```
+
+São esperadas as seguintes entradas:
+```json
+{
+	"nome": "Grupo Brisa",
+	"status": "1"
+}
+```
+
+## Buscar Grupos
+Retorna todas os grupos que foram cadastrados em uma lista de objetos
+```
+https://aasa-senai.herokuapp.com/grupos
+```
+
+```json
+[
+	{
+		"id": "5",
+		"nome": "Komanda",
+		"status": 1,
+		"created_at": "2022-08-23T18:30:45.101Z",
+		"updated_at": "2022-08-23T18:30:45.101Z"
+	},
+	{
+		"id": "6",
+		"nome": "Teste",
+		"status": 1,
+		"created_at": "2022-08-30T17:18:01.531Z",
+		"updated_at": "2022-08-30T17:18:01.531Z"
+	}
+]
+```
+## Buscar Grupo Especifica
+Acessar a seguinte rota usando o método GET:
+```
+https://aasa-senai.herokuapp.com/grupo/:id
+```
+
+	- ":id" se refere ao código identificador da equipe
+
+O retorno esperado é um objeto com as seguintes informações:
+	- Dados (informações basicas)
+	- Pessoas (todas as pessoas desse grupo)
+
+```json
+{
+	"id": "5",
+	"nome": "Komanda",
+	"status": 1,
+	"created_at": "2022-08-23T18:30:45.101Z",
+	"updated_at": "2022-08-23T18:30:45.101Z",
+	"pessoas": [
+		{
+			"id": "4",
+			"tipo": 2,
+			"nome": "Pedrão",
+			"email": "oi321@gmail.com",
+			"senha": "$2b$12$utrpPhICPE29RHzCoYj4QegM4HjI91mGcx9G2wuzNbY9fFIRX0MZO",
+			"foto": "faktwerjgsdfsdhflkjads",
+			"created_at": "2022-08-23T17:49:25.907Z",
+			"updated_at": "2022-08-23T17:49:25.907Z",
+			"cpf": null
+		},
+		{
+			"id": "4",
+			"tipo": 2,
+			"nome": "Pedrão",
+			"email": "oi321@gmail.com",
+			"senha": "$2b$12$utrpPhICPE29RHzCoYj4QegM4HjI91mGcx9G2wuzNbY9fFIRX0MZO",
+			"foto": "faktwerjgsdfsdhflkjads",
+			"created_at": "2022-08-23T17:49:25.907Z",
+			"updated_at": "2022-08-23T17:49:25.907Z",
+			"cpf": null
+		},
+		{
+			"id": "6",
+			"tipo": 2,
+			"nome": "Pedrão",
+			"email": "oi3221@gmail.com",
+			"senha": "$2b$12$0aIZLkoMj7gK6SrqCU35uOaDTgZNPccJxkD5PpZECHexWJgZWvB0K",
+			"foto": "faktwerjgsdfsfdhflkjads",
+			"created_at": "2022-08-23T17:50:28.410Z",
+			"updated_at": "2022-08-23T17:50:28.410Z",
+			"cpf": null
+		}
+	]
+}
+```
+
+## Editar/Atualidar Grupo
+Usando o método PUT, podemos acessar o seguinte endereço:
+
+```
+https://aasa-senai.herokuapp.com/grupos/:id
+```
+
+	- ":id" se refere ao código identificador de um grupo
+
+É necessario passar os seguintes campos: 
+
+```json
+{
+	"nome": "Grupo Brisa Teste Put",
+	"status": "2"
+}
+```
+
+## Deletar Grupo
+Para apagar uma, é necessário acessar o  seguinte endereço usando o método DELETE
+
+```
+https://aasa-senai.herokuapp.com/grupos/:id
+```
+
+	- ":id" se refere ao código identificador de um grupo
 
 
