@@ -22,5 +22,13 @@ module.exports = class Grupo {
                             INNER JOIN grupo AS gr ON gr.id = gu.fk_grupo
                             WHERE gr.id = $1`, [id])
     }
+
+    static postGrupo(grupo){
+        return cliente.query(`INSERT INTO grupo (nome, status) values ($1, $2)`, [grupo.nome, grupo.status])
+    }
+
+    static putGrupo(grupo, id) {
+        return cliente.query(`UPDATE grupo  (nome, status, id) values ($1, $2, $3)`, [grupo.nome, grupo.status, id], )
+    }
 }
 
