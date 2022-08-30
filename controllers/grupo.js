@@ -13,7 +13,9 @@ exports.getOne = async (req, res, next) => {
     const id = req.params.id
     try {
         const grupo = await Grupo.getOne(id)
+        console.log(grupo.rows)
         const pessoas = await Grupo.getPessoas(id)
+        console.log(pessoa.rows)
 
         // Montando um Objeto para a resposta
         let res = grupo.rows[0]
