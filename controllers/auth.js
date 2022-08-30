@@ -81,7 +81,7 @@ exports.login = async (req, res, next) => {
             process.env.SECRET,
             { expiresIn: '2h' }
         );
-        return res.status(200).json({ message: "Login Finalizado", token: token, userId: guardaUser.id, tipo: 3 })
+        return res.status(200).json({ message: "Login Finalizado", token: token, userId: guardaUser.id, tipo: 3, nome: guardaUser.nome })
 
     } else {
 
@@ -104,6 +104,6 @@ exports.login = async (req, res, next) => {
             { expiresIn: '2h' }
         );
 
-        res.status(200).json({ token: token, userId: guardaUser.id, tipo: guardaUser.tipo })
+        res.status(200).json({ token: token, userId: guardaUser.id, tipo: guardaUser.tipo, nome: guardaUser.nome})
     }
 }
