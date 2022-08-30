@@ -18,7 +18,8 @@ exports.getOne = async (req, res, next) => {
         console.log(pessoas.rows)
 
         // Montando um Objeto para a resposta
-        let res = grupo.rows[0]
+        let res = {}
+        res = grupo.rows[0]
         res.pessoas = pessoas.rows
         return res.status(200).json(res)
     } catch (error) {
