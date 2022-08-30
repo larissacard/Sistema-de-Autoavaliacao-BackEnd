@@ -12,11 +12,11 @@ module.exports = class Pesquisa {
     }
 
     static getAll(){
-        return cliente.query("SELECT * from pesquisa ORDER BY id");
+        return cliente.query(`SELECT * from pesquisa ORDER BY id`);
     }
  
     static procuraPesquisa(id) {
-        return cliente.query("SELECT * FROM pesquisa WHERE id = $1", [id]); 
+        return cliente.query(`SELECT * FROM pesquisa WHERE id = $1`, [id]); 
     }
     
     static getPerguntasPesquisa(id) {
@@ -27,14 +27,14 @@ module.exports = class Pesquisa {
         return cliente.query(`DELETE FROM pesquisa WHERE id = $1`, [id]);
     }
 
-    static putPesquisa(fk_grupo, titulo, descricao, fk_tipo_pesquisa, id){
-        return cliente.query(`UPDATE pesquisa set fk_grupo = $1, titulo = $2, descricao = $3, fk_tipo_pesquisa = $4
-                            WHERE id = $5`, [fk_grupo, titulo, descricao, fk_tipo_pesquisa, id])
-    }
-
     static postPesquisa(pesquisa) {
         return cliente.query(`INSERT INTO pesquisa (titulo, descricao, fk_grupo, fk_tipo_pesquisa, fk_usuario) values ($1, $2, $3, $4, $5)`, [pesquisa.titulo, pesquisa.descricao, pesquisa.fk_grupo, pesquisa.fk_tipo_pesquisa, pesquisa.fk_usuario]);
     }
+
+    static putPesquisa(pesquisa, id){
+        return cliente.query(`UPDATE pesquisa (fk_grupo, titulo, descricao, fk_tipo_pesquisa, id)`, [pesquisa.fk_grupo, pesquisa.titulo, pesquisa.descricao, pesquisa.fk_tipo_pesquisa, id])
+    }
+
 
     static getOneResponse(user, pesquisa){
         // Retorna as respostas que um usuario deu para uma pesquisa

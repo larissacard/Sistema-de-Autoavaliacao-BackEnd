@@ -27,9 +27,9 @@ exports.deletePergunta = async(req, res, next) => {
 
 exports.putPergunta = async(req, res, next) => {
     const id = req.params.id
-    const body = req.body
+    const {enunciado, fk_pesquisa} = req.body
     try {
-        Pergunta.putPergunta( body.enunciado, body.fk_pesquisa, id )
+        Pergunta.putPergunta( enunciado, fk_pesquisa, id )
         return res.status(200).json({message: "Atualizado"})
     } catch (err) {
         return res.status(500).json(err)

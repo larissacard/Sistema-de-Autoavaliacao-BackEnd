@@ -35,9 +35,9 @@ exports.deletePesquisa = async(req, res, next) => {
 
 exports.putPesquisa = async(req, res, next) => {
     const id = req.params.id
-    const body = req.body
+    const {fk_grupo, titulo, descricao, fk_tipo_pesquisa} = req.body
     try {
-        Pesquisa.putPesquisa( body.fk_grupo, body.titulo, body.descricao, body.fk_tipo_pesquisa, id )
+        Pesquisa.putPesquisa(fk_grupo, titulo, descricao, fk_tipo_pesquisa, id )
         return res.status(200).json({message: "Atualizado"})
     } catch (err) {
         return res.status(500).json(err)
