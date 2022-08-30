@@ -57,8 +57,8 @@ São esperadas as seguintes entradas:
 -  User ADMIN
 ```json
 {
-	"cpf": "12312312344",
-	"senha": "12312312344"
+	"cpf": "",
+	"senha": ""
 }
 ```
 
@@ -234,7 +234,7 @@ https://aasa-senai.herokuapp.com/pesquisa/:id
 
 	- ":id" se refere ao código identificador de uma pesquisa
 
-## Editar/Atualidar Pesquisa
+## Editar/Atualizar Pesquisa
 Usando o método PUT, podemos acessar o seguinte endereço:
 
 ```
@@ -437,7 +437,7 @@ O retorno esperado é um objeto com as seguintes informações:
 }
 ```
 
-## Editar/Atualidar Grupo
+## Editar/Atualizar Grupo
 Usando o método PUT, podemos acessar o seguinte endereço:
 
 ```
@@ -464,4 +464,80 @@ https://aasa-senai.herokuapp.com/grupos/:id
 
 	- ":id" se refere ao código identificador de um grupo
 
+# Tipo de Pesquisa
 
+## Cadastrar Tipo de Pesquisa
+Usando o método POST podemos acessar o seguinte endereço:
+```
+https://aasa-senai.herokuapp.com/tipoPesquisa
+```
+São esperadas as seguintes entradas:
+```json
+{
+	"nome": "Migule"
+}
+```
+
+## Buscar Tipos de Pesquisa
+Retorna todos os tipos de pesquisa que foram cadastrados em uma lista de objetos
+```
+https://aasa-senai.herokuapp.com/tipoPesquisa
+```
+
+O retorno esperado é um objeto com as seguintes informações:
+	- Dados (informações basicas)
+
+```json
+[
+	{
+		"id": "5",
+		"nome": "Pesquisa Padrao"
+	},
+	{
+		"id": "6",
+		"nome": "Migule"
+	}
+]
+```
+
+## Buscar Tipo de Pesquisa Especifica
+Acessar a seguinte rota usando o método GET:
+```
+https://aasa-senai.herokuapp.com/tipoPesquisa/:id
+```
+	- ":id" se refere ao código identificador de um tipo de pesquisa
+
+O retorno esperado é um objeto com as seguintes informações:
+	- Dados (informações basicas)
+
+```json
+{
+	"id": "5",
+	"nome": "Pesquisa Padrao"
+}
+```
+
+## Editar/Atualizar Tipo de Pesquisa
+Usando o método PUT, podemos acessar o seguinte endereço:
+
+```
+https://aasa-senai.herokuapp.com/tipoPesquisa/:id
+```
+	- ":id" se refere ao código identificador de um tipo de pesquisa
+
+É necessario passar os seguintes campos: 
+
+```json
+{
+	"nome": "Miguel",
+}
+```
+
+## Deletar Tipo de Pesquisa
+Para apagar uma, é necessário acessar o  seguinte endereço usando o método DELETE
+
+```
+https://aasa-senai.herokuapp.com/tipoPesquisa/:id
+```
+
+	- ":id" se refere ao código identificador de um tipo de pesquisa
