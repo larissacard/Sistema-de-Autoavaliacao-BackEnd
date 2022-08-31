@@ -76,6 +76,7 @@ exports.login = async (req, res, next) => {
         const token = jwt.sign(
             {
                 userId: guardaUser.id,
+                nome: guardaUser.nome,
                 tipo: guardaUser.tipo
             },
             process.env.SECRET,
@@ -98,6 +99,7 @@ exports.login = async (req, res, next) => {
         const token = jwt.sign(
             {
                 userId: guardaUser.id,
+                nome: guardaUser.nome,
                 tipo: guardaUser.tipo
             },
             process.env.SECRET,
