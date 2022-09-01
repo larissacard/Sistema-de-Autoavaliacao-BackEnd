@@ -32,7 +32,9 @@ module.exports = class Pesquisa {
     }
 
     static putPesquisa(pesquisa, id){
-        return cliente.query(`UPDATE pesquisa (fk_grupo, titulo, descricao, fk_tipo_pesquisa, id)`, [pesquisa.fk_grupo, pesquisa.titulo, pesquisa.descricao, pesquisa.fk_tipo_pesquisa, id])
+        return cliente.query(`UPDATE pesquisa
+                              set fk_grupo = $1, titulo = $2, descricao = $3, fk_tipo_pesquisa = $4
+                              where id = $5`, [pesquisa.fk_grupo, pesquisa.titulo, pesquisa.descricao, pesquisa.fk_tipo_pesquisa, id])
     }
 
 
