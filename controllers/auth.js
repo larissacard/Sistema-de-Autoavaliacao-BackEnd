@@ -81,12 +81,13 @@ exports.login = async (req, res, next) => {
             {
                 userId: guardaUser.id,
                 nome: guardaUser.nome,
-                tipo: guardaUser.tipo
+                tipo: guardaUser.tipo,
+                foto: guardaUser.foto
             },
             process.env.SECRET,
             { expiresIn: '2h' }
         );
-        return res.status(200).json({ message: "Login Finalizado", token: token, userId: guardaUser.id, tipo: 3, nome: guardaUser.nome })
+        return res.status(200).json({ message: "Login Finalizado", token: token, userId: guardaUser.id, tipo: 3, nome: guardaUser.nome, foto: guardaUser.foto })
 
     } else {
 
@@ -104,12 +105,13 @@ exports.login = async (req, res, next) => {
             {
                 userId: guardaUser.id,
                 nome: guardaUser.nome,
-                tipo: guardaUser.tipo
+                tipo: guardaUser.tipo,
+                foto: guardaUser.foto
             },
             process.env.SECRET,
             { expiresIn: '2h' }
         );
 
-        res.status(200).json({ token: token, userId: guardaUser.id, tipo: guardaUser.tipo, nome: guardaUser.nome})
+        res.status(200).json({ token: token, userId: guardaUser.id, tipo: guardaUser.tipo, nome: guardaUser.nome, foto: guardaUser.foto})
     }
 }
