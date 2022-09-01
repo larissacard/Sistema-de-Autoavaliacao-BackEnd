@@ -28,5 +28,11 @@ module.exports = class Usuario {
                             INNER JOIN pesquisa AS pe ON pe.fk_grupo = gr.id
                             WHERE us.id = $1`, [id])
     }
+
+    static deleteUsuario(id) {
+        return cliente
+                    .query(`DELETE FROM usuario
+                            WHERE id = $1`, [id])
+    }
 }
 
