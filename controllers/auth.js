@@ -22,6 +22,10 @@ exports.cadastrar = async (req, res, next) => {
             return res.status(400).json({ message: "Insira uma Senha" })
         }
 
+        if ( senha.length < 8) {
+            return res.status(400).json({menssage : "Senha tem que ter no min 7 caracteres"})
+        }
+
         const qtd_emails = await Root.procurarRootEmail(email)
         if (qtd_emails.rowCount > 0) {
             return res.status(400).json({ message: "Email já cadastrado" })
