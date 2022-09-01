@@ -38,3 +38,15 @@ exports.deleteUsuario = async(req, res, next) => {
         return res.status(400).json(err)
     }
 }
+
+exports.updateUsuario = async(req, res, next) => {
+    const id = req.params.id
+    const {tipo, nome, email, senha, cpf, fk_grupo} = req.body
+
+    try {
+        Usuario.updateUsuario(tipo, nome, email, senha, cpf, fk_grupo, id)
+        return res.status(200).json({message: "Usuário atualizado com sucesso!!"})
+    } catch (err) {
+        return res.status(500).json(err)
+    }
+}

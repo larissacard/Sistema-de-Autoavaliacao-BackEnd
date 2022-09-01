@@ -34,5 +34,14 @@ module.exports = class Usuario {
                     .query(`DELETE FROM usuario
                             WHERE id = $1`, [id])
     }
+
+    static updateUsuario(usuario, id) {
+        return cliente
+                    .query(`UPDATE usuario (tipo, nome, email, senha, cpf, fk_grupo)
+                    values ($1, $2, $3, $4, $5, $6, $7)`, [
+                    usuario.tipo, usuario.nome, usuario.email,
+                    usuario.senha, usuario.cpf, usuario.fk_grupo
+                    , id ])
+    }
 }
 
