@@ -22,7 +22,7 @@ exports.cadastrar = async (req, res, next) => {
             return res.status(400).json({ message: "Insira uma Senha" })
         }
 
-        if ( senha.length < 8) {
+        if (tipo !== 3 && senha.length < 8) {
             return res.status(400).json({menssage : "Senha tem que ter no min 7 caracteres"})
         }
 
