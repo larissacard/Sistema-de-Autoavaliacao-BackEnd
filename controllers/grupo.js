@@ -28,7 +28,7 @@ exports.getOne = async (req, res, next) => {
 }
 
 exports.postGrupo = async(req, res, next) => {
-    const {nome, status} = req.body
+    const {nome, status, pessoas} = req.body
     try{
         const dadosGrupo = {
             nome: nome,
@@ -36,6 +36,10 @@ exports.postGrupo = async(req, res, next) => {
         }
 
         const grupoEnviado = await Grupo.postGrupo(dadosGrupo);
+        console.log(grupoEnviado)
+        // pessoas.forEach(element => {
+            
+        // });
 
         res.status(201).json(grupoEnviado)
     } catch (err) {
