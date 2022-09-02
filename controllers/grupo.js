@@ -37,9 +37,9 @@ exports.postGrupo = async(req, res, next) => {
 
         const grupoEnviado = await Grupo.postGrupo(dadosGrupo);
         console.log(grupoEnviado.rows[0].id)
-        // pessoas.forEach(element => {
-            
-        // });
+         pessoas.forEach(element => {
+            Grupo.postGrupoPessoa(grupoEnviado.rows[0].id, element)
+         });
 
         res.status(201).json(grupoEnviado)
     } catch (err) {

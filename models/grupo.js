@@ -35,8 +35,8 @@ module.exports = class Grupo {
     static deleteGrupo(id){
         return cliente.query(`DELETE FROM grupo WHERE id = $1`, [id]);
     }
-    static postGrupoPessoa(grupoPessoa) {
-        return cliente.query(`INSERT INTO grupo_usuario (fk_grupo, fk_usuario) values ($1, $2)`, [grupoPessoa.fk_grupo, grupoPessoa.fk_usuario])
+    static postGrupoPessoa(grupo, pessoa) {
+        return cliente.query(`INSERT INTO grupo_usuario (fk_grupo, fk_usuario) values ($1, $2)`, [grupo, pessoa])
     }
 }
 
