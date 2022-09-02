@@ -31,10 +31,10 @@ module.exports = class Pesquisa {
         return cliente.query(`INSERT INTO pesquisa (titulo, descricao, fk_grupo, fk_tipo_pesquisa, fk_usuario) values ($1, $2, $3, $4, $5)`, [pesquisa.titulo, pesquisa.descricao, pesquisa.fk_grupo, pesquisa.fk_tipo_pesquisa, pesquisa.fk_usuario]);
     }
 
-    static putPesquisa(pesquisa, id){
+    static putPesquisa(fk_grupo, titulo, descricao, fk_tipo_pesquisa, id){
         return cliente.query(`UPDATE pesquisa
                               set fk_grupo = $1, titulo = $2, descricao = $3, fk_tipo_pesquisa = $4
-                              where id = $5`, [pesquisa.fk_grupo, pesquisa.titulo, pesquisa.descricao, pesquisa.fk_tipo_pesquisa, id])
+                              where id = $5`, [fk_grupo, titulo, descricao, fk_tipo_pesquisa, id])
     }
 
 
