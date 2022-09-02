@@ -36,7 +36,7 @@ exports.postGrupo = async(req, res, next) => {
         }
 
         const grupoEnviado = await Grupo.postGrupo(dadosGrupo);
-        console.log(grupoEnviado)
+        console.log(grupoEnviado.rows)
         // pessoas.forEach(element => {
             
         // });
