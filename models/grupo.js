@@ -25,7 +25,7 @@ module.exports = class Grupo {
 
     static postGrupo(grupo){
         return cliente.query(`INSERT INTO grupo (nome, status) values ($1, $2)
-                              RETURNING (id, nome, status)`, [grupo.nome, grupo.status]);
+                              RETURNING id`, [grupo.nome, grupo.status]);
     }
 
     static putGrupo(grupo, id) {
