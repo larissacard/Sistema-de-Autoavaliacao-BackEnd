@@ -16,8 +16,8 @@ module.exports = class Resposta {
         return cliente.query(`SELECT * FROM respostas WHERE id= $1`, [id]);
     }
 
-    static postResposta(resposta) {
-        return cliente.query(`INSERT INTO respostas (fk_usuario, fk_pergunta, nota) values ($1, $2, $3) RETURNING id`, [resposta.fk_usuario, resposta.fk_pergunta, resposta.nota]);
+    static postResposta(fk_usuario, fk_pergunta, nota) {
+        return cliente.query(`INSERT INTO respostas (fk_usuario, fk_pergunta, nota) values ($1, $2, $3) RETURNING id`, [fk_usuario, fk_pergunta, nota]);
     }
 
     static postAllRespostas(resposta){
