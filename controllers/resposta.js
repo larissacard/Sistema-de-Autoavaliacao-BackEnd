@@ -40,3 +40,22 @@ exports.postResposta = async(req, res, next) => {
         return res.status(500).json(err)
     }
 }
+
+exports.postAllRespostas = async(req, res, next) => {
+    const {fk_usuario, fk_pergunta, nota} = req.body
+
+    try{
+        const dadosRespostas = {
+            fk_usuario: fk_usuario,
+            fk_pergunta: fk_pergunta,
+        }
+
+        const respostasEnviadas = await Resposta.postResposta(dadosRespostas);
+        nota.forEach(element => {
+            Resposta.postResposta(respostasEnviadas.rows[0].id, element)
+        });
+    } catch(err){
+        res.status(500).json(err)
+    }
+
+}

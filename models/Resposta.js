@@ -17,6 +17,10 @@ module.exports = class Resposta {
     }
 
     static postResposta(resposta) {
-        return cliente.query(`INSERT INTO respostas (fk_usuario, fk_pergunta, nota) values ($1, $2, $3)`, [resposta.fk_usuario, resposta.fk_pergunta, resposta.nota]);
+        return cliente.query(`INSERT INTO respostas (fk_usuario, fk_pergunta, nota) values ($1, $2, $3) RETURNING id`, [resposta.fk_usuario, resposta.fk_pergunta, resposta.nota]);
+    }
+
+    static postAllRespostas(resposta){
+        return cliente.query(`INSERTO INTO respostas (fk_usuario, fk_pergunta, nota) values($1, $2, $3)`, [resposta.fk_usuario, resposta.fk_pergunta, resposta.nota])
     }
 }   
