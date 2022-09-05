@@ -5,6 +5,6 @@ const resposta_controller = require('../controllers/resposta')
 
 router.get('/resposta', auth, resposta_controller.getAll)
 router.get('/resposta/:id', auth, resposta_controller.getResposta)
-router.post('/resposta', auth, resposta_controller.postResposta)
+router.post('/resposta', auth, resposta_controller.postAllRespostas)
 
 module.exports = router;
