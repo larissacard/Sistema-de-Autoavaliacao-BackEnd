@@ -43,7 +43,7 @@ exports.updateUsuario = async(req, res, next) => {
     const id = req.params.id
     const {tipo, nome, email, senha, cpf} = req.body
 
-    if(tipo != '1' || tipo != '2' || tipo != '3'){
+    if(tipo != '1' && tipo != '2' && tipo != '3'){
         return res.status(400).json({message: "Tipo de usuário invalido!"})
     }
     try {
