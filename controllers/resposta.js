@@ -49,6 +49,7 @@ exports.postAllRespostas = async(req, res, next) => {
         Respostas.forEach(element => {
             Resposta.postResposta(fk_usuario, element.id, element.nota)
         });
+        return res.status(200).json({message: 'foi garai'})
     } catch(err){
         res.status(500).json(err)
     }
