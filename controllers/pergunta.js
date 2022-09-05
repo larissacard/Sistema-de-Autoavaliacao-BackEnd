@@ -51,7 +51,8 @@ exports.postPergunta = async (req, res, next) => {
         }
 
         const perguntaCriada = await Pergunta.postPergunta(dadosPergunta);
-        res.status(201).json({ message: 'Success Search Registered', id: perguntaCriada });
+        console.log(perguntaCriada)
+        res.status(201).json({ message: 'Success Search Registered' });
     } catch (err) {
         return res.status(500).json(err)
     }

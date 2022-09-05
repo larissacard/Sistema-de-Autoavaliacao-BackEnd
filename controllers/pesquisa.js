@@ -62,7 +62,7 @@ exports.postPesquisa = async (req, res, next) => {
 
         const pesquisaCriada = await Pesquisa.postPesquisa(dadosPequisa);
 
-        res.status(201).json({ message: 'Success Search Registered' });
+        res.status(201).json({ message: 'Success Search Registered', id: pesquisaCriada });
 
     } catch (err) {
         return res.status(500).json(err)
