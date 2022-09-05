@@ -9,6 +9,7 @@ exports.getAll = async(req, res, next) => {
     }
 }
 
+//Pedroca migulo não mostra se o usuario ja tiver respondido a pesquisa
 exports.getPesquisas = async(req, res, next) => {
     const id = req.params.id
 
