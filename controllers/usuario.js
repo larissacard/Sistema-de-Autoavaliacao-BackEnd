@@ -23,7 +23,7 @@ exports.getPesquisas = async(req, res, next) => {
         if (usuario.rowCount === 0) {
             return res.status(404).json({message: `Usuario ${id} não encontrado`})
         }
-        return res.status(400).json(err)
+        return res.status(400).json(error)
     }
 }
 
@@ -38,7 +38,7 @@ exports.deleteUsuario = async(req, res, next) => {
         if (usuario.rowCount !== 0) {
             return res.status(404).json({message: `Usuario ${id} não encontrado`})
         }
-        return res.status(400).json(err)
+        return res.status(400).json(error)
     }
 }
 
@@ -53,7 +53,7 @@ exports.updateUsuario = async(req, res, next) => {
         Usuario.updateUsuario(tipo, nome, email, senha, cpf, id)
         return res.status(200).json({message: "Usuário atualizado com sucesso!!"})
 
-    } catch (err) {
-        return res.status(500).json(err)
+    } catch (error) {
+        return res.status(500).json(error)
     }
 }
