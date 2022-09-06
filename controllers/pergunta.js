@@ -1,4 +1,5 @@
-const Pergunta = require('../models/Pergunta')
+const Pergunta = require('../models/Pergunta');
+const Pesquisa = require('../models/Pesquisa');
 
 exports.perguntaEspecifica = async(req, res, next) => {
     const id = req.params.id
@@ -50,6 +51,7 @@ exports.postPergunta = async (req, res, next) => {
         }
 
         const perguntaCriada = await Pergunta.postPergunta(dadosPergunta);
+        console.log(perguntaCriada)
         res.status(201).json({ message: 'Success Search Registered' });
     } catch (err) {
         return res.status(500).json(err)
