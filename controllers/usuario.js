@@ -19,7 +19,6 @@ exports.getPesquisas = async(req, res, next) => {
         respondidas.rows.map(p => p.fk_pesquisa)
 
         const resultado = pesquisas.rows.filter(pe => !respondidas.rows.includes(pe.id))
-        console.log(resultado)
         return res.status(200).json(resultado)
     } catch (error) {
         const usuario = await Usuario.getOne(id)
