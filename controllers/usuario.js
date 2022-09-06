@@ -21,7 +21,7 @@ exports.getPesquisas = async(req, res, next) => {
         console.log(pesquisas.rows)
         console.log(respondidas.rows)
 
-        const resultado = pesquisas.rows.filter(pe => !respondidas.rows.includes(pe.id))
+        const resultado = pesquisas.rows.filter(pe => !respondidas.includes(pe.id))
         console.log(resultado)
         return res.status(200).json(resultado)
     } catch (error) {
