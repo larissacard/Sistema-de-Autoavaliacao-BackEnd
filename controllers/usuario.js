@@ -16,7 +16,7 @@ exports.getPesquisas = async(req, res, next) => {
     try {
         let pesquisas = await Usuario.getPesquisas(id)
         let respondidas = await Usuario.getPesquisasRes(id)
-        respondidas.rows.map(p => p.fk_pesquisa)
+        respondidas = respondidas.map(p => p.fk_pesquisa)
 
         console.log(pesquisas.rows)
         console.log(respondidas.rows)
