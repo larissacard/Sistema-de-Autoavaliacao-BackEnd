@@ -15,7 +15,9 @@ exports.getPesquisas = async(req, res, next) => {
 
     try {
         const pesquisas = await Usuario.getPesquisas(id)
-        return res.status(200).json(pesquisas.rows)
+        const respondidas = await Usuario.getPesquisasRes(id)
+        const resultado = pesquisas.filter(pe => !respondidas.includes(pe))
+        return res.status(200).json(resultado)
     } catch (error) {
         const usuario = await Usuario.getOne(id)
         if (usuario.rowCount === 0) {

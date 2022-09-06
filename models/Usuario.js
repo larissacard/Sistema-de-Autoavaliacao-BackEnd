@@ -29,6 +29,15 @@ module.exports = class Usuario {
                             WHERE us.id = $1`, [id])
     }
 
+    static getPesquisasRes(id){
+        return cliente
+                    .query(`SELECT fk_pesquisa FROM respostas AS re
+                            INNER JOIN perguntas AS pe ON pe.id = re.fk_pergunta
+                            WHERE re.fk_usuario = $1
+                            group by fk_pesquisa`, [id])
+                            
+    }
+
     static deleteUsuario(id) {
         return cliente
                     .query(`DELETE FROM usuario
