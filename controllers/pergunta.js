@@ -38,13 +38,9 @@ exports.putPergunta = async(req, res, next) => {
 }
 
 exports.postPergunta = async (req, res, next) => {
-    // const errors = validationResult(req);
-
-    // if (errors.isEmpty()) return
     const { enunciado, fk_pesquisa } = req.body
 
     try {
-
         const dadosPergunta = {
             enunciado: enunciado,
             fk_pesquisa: fk_pesquisa
@@ -52,6 +48,21 @@ exports.postPergunta = async (req, res, next) => {
 
         const perguntaCriada = await Pergunta.postPergunta(dadosPergunta);
         console.log(perguntaCriada)
+        res.status(201).json({ message: 'Success Search Registered' });
+    } catch (err) {
+        return res.status(500).json(err)
+    }
+}
+
+exports.postVariasPerguntas = async (req, res, next) => {
+    const { perguntas } = req.body
+    const { pesquisa } = req.params
+
+    try {
+        await Promise.all( perguntas.forEach(async (perg) => {
+            await Pergunta.postPergunta({enunciado: perg.enunciado, fk_pesquisa: pesquisa});
+        }))
+        
         res.status(201).json({ message: 'Success Search Registered' });
     } catch (err) {
         return res.status(500).json(err)
