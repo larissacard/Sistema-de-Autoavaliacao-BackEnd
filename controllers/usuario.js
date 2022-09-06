@@ -14,11 +14,11 @@ exports.getPesquisas = async(req, res, next) => {
     const id = req.params.id
 
     try {
-        const pesquisas = await Usuario.getPesquisas(id)
-        const respondidas = await Usuario.getPesquisasRes(id)
-        console.log(pesquisas)
-        console.log(respondidas)
-        const resultado = pesquisas.rows.filter(pe => !respondidas.rows.includes(pe))
+        let pesquisas = await Usuario.getPesquisas(id)
+        let respondidas = await Usuario.getPesquisasRes(id)
+        respondidas.rows.map(p => p.fk_pesquisa)
+
+        const resultado = pesquisas.rows.filter(pe => !respondidas.rows.includes(pe.id))
         console.log(resultado)
         return res.status(200).json(resultado)
     } catch (error) {
