@@ -18,7 +18,11 @@ exports.getPesquisas = async(req, res, next) => {
         let respondidas = await Usuario.getPesquisasRes(id)
         respondidas.rows.map(p => p.fk_pesquisa)
 
+        console.log(pesquisas.rows)
+        console.log(respondidas.rows)
+
         const resultado = pesquisas.rows.filter(pe => !respondidas.rows.includes(pe.id))
+        console.log(resultado)
         return res.status(200).json(resultado)
     } catch (error) {
         const usuario = await Usuario.getOne(id)
