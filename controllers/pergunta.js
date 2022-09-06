@@ -60,9 +60,9 @@ exports.postVariasPerguntas = async (req, res, next) => {
 
     console.log(perguntas)
     try {
-        await Promise.all( perguntas.forEach(async (perg) => {
-            await Pergunta.postPergunta({enunciado: perg.titulo, fk_pesquisa: pesquisa});
-        }))
+        await perguntas.forEach((perg) => {
+            Pergunta.postPergunta({enunciado: perg.titulo, fk_pesquisa: pesquisa});
+        })
 
         res.status(201).json({ message: 'Success Search Registered' });
     } catch (err) {
