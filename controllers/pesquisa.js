@@ -48,7 +48,7 @@ exports.postPesquisa = async (req, res, next) => {
     // const errors = validationResult(req);
 
     // if (errors.isEmpty()) return
-    const { titulo, descricao, fk_usuario, fk_tipo_pesquisa, fk_grupo } = req.body
+    const { titulo, descricao, fk_usuario, fk_tipo_pesquisa, fk_grupo, data_inicio, data_fim } = req.body
 
     try {
 
@@ -57,7 +57,9 @@ exports.postPesquisa = async (req, res, next) => {
             descricao: descricao,
             fk_usuario: fk_usuario,
             fk_tipo_pesquisa: fk_tipo_pesquisa,
-            fk_grupo: fk_grupo
+            fk_grupo: fk_grupo,
+            data_inicio: data_inicio,
+            data_fim: data_fim
         }
 
         const pesquisaCriada = await Pesquisa.postPesquisa(dadosPequisa);
