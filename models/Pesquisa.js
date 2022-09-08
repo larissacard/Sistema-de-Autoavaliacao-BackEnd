@@ -29,7 +29,7 @@ module.exports = class Pesquisa {
 
     static postPesquisa(pesquisa) {
         return cliente.query(`INSERT INTO pesquisa (titulo, descricao, fk_grupo, fk_tipo_pesquisa, fk_usuario, data_inicio, data_fim)
-                              values ($1, $2, $3, $4, $5) returning id`,
+                              values ($1, $2, $3, $4, $5, $6, $7) returning id`,
                               [pesquisa.titulo, pesquisa.descricao, pesquisa.fk_grupo, pesquisa.fk_tipo_pesquisa, pesquisa.fk_usuario, pesquisa.data_inicio, pesquisa.data_fim]);
     }
 
