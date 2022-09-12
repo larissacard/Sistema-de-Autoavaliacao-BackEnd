@@ -21,11 +21,18 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    /**
-     * Add reverting commands here.
-     *
-     * Example:
-     * await queryInterface.dropTable('users');
-     */
+    await queryInterface.sequelize.query(`
+    ALTER TABLE pesquisa DROP COLUMN fk_tipo_pesquisa;
+    ALTER TABLE pesquisa DROP COLUMN fk_usuario;
+    ALTER TABLE pesquisa DROP COLUMN fk_grupo;
+ 
+    ALTER TABLE pesquisa ADD COLUMN fk_tipo_pesquisa bigint;
+    ALTER TABLE pesquisa ADD COLUMN fk_usuario bigint;
+    ALTER TABLE pesquisa ADD COLUMN fk_grupo bigint;
+
+    ALTER TABLE "pesquisa" ADD FOREIGN KEY ("fk_tipo_pesquisa") REFERENCES "tipo_pesquisa" ("id");
+    ALTER TABLE "pesquisa" ADD FOREIGN KEY ("fk_usuario") REFERENCES "usuario" ("id");
+    ALTER TABLE "pesquisa" ADD FOREIGN KEY ("fk_grupo") REFERENCES "grupo" ("id");
+    `)
   }
 };
