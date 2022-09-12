@@ -3,7 +3,8 @@ const { body } = require('express-validator');
 const router = express.Router();
 const Root = require('../models/Root');
 const authController = require('../controllers/auth');
-const multerConfig = require('../middleware/multer');
+const multerConfig = require('../middleware/multer')
+const multer = require("multer");
 
 router.post('/cadastrar', multer(multerConfig).single('foto'),
         body('nome').trim().not().isEmpty(),
