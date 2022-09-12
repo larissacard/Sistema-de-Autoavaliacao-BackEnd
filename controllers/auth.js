@@ -2,7 +2,7 @@ const { validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Root = require('../models/Root');
-const { s3Uploadv2 } = require("../../middlewares/s3Service");
+const { s3Uploadv2 } = require("../middleware/s3Service");
 
 exports.cadastrar = async (req, res, next) => {
     const nome = req.body.nome;
