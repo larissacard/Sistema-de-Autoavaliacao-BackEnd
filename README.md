@@ -35,7 +35,7 @@
 - [x] CLIENTE
 - [x] COLABORADOR
 - [x] GESTÃO DE PESQUISA DE SATISFAÇÃO 
-- [x] metodologia NPS
+- [x] MÉTODOLOGIA NPS
 
 # User
 
