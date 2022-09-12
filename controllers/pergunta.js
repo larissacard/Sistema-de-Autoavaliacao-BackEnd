@@ -20,7 +20,7 @@ exports.deletePergunta = async(req, res, next) => {
     const id = req.params.id
     try {
         Pergunta.deletePergunta(id)
-        return res.status(200)
+        return res.status(200).json({message: "Apagado com sucesso"})
     } catch (err) {
         return res.status(500).json(err)
     }
