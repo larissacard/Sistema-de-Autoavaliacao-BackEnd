@@ -2,6 +2,7 @@ const { validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Root = require('../models/Root');
+const { s3Uploadv2 } = require("../middleware/s3Service");
 
 exports.cadastrar = async (req, res, next) => {
     const nome = req.body.nome;
@@ -47,12 +48,19 @@ exports.cadastrar = async (req, res, next) => {
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array()})
         }
+        
+        // Verificando se um arquivo de foto foi recebido
+        if (req.file){
+            var result = await s3Uploadv2(req.file)
+            detalhesUsuario.foto = result.Location
+        } 
 
         try {
             await Root.adicionaRoot(detalhesUsuario);
         } catch (error) {
             return res.status(400).json(error)
         }
+
 
         res.status(201).json({ message: 'Success Registered' });
 

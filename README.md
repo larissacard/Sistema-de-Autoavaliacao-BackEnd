@@ -27,6 +27,8 @@
 -  O Banco de Dados e a BackEnd estão hospedadas no [Heroku](https://www.heroku.com).
 - Foi desenvolvido com [NodeJs](https://nodejs.org/en/), [Express](https://expressjs.com/pt-br/) e [PostgreSQL](https://www.postgresql.org);
 
+## Requisitos
+-
 # Funcionalidades
 - [x] SISTEMAS DE GESTÃO DE USUÁRIOS 
 - [x] PERFIS DE USUÁRIOS
@@ -36,6 +38,8 @@
 - [x] COLABORADOR
 - [x] GESTÃO DE PESQUISA DE SATISFAÇÃO 
 - [x] MÉTODOLOGIA NPS
+
+
 
 # User
 
