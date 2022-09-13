@@ -103,8 +103,8 @@ exports.login = async (req, res, next) => {
             return res.status(401).json({ message: "Insira uma Senha" })
         }
 
-        console.log(senha, guardaUser)
-        const confirmaSenha = await bcrypt.compare(senha, guardaUser.senha);
+        if (guardaUser.senha) var confirmaSenha = await bcrypt.compare(senha, guardaUser.senha);
+        else return res.status(400).json({message: "Erro ao buscar os dados"})
 
         if (!confirmaSenha) {
             return res.status(400).json({ message: `Senha Incorreta` })
