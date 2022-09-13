@@ -50,8 +50,17 @@ exports.updateUsuario = async(req, res, next) => {
     if(tipo != '1' && tipo != '2' && tipo != '3'){
         return res.status(400).json({message: "Tipo de usuário invalido!"})
     }
+
+    if (senha.length < 8) return res.status(400).json({message: `A senha deve ter pelo menos 8 caracteres`})
+     
     try {
-        Usuario.updateUsuario(tipo, nome, email, senha, cpf, id)
+        Usuario
+        const criptografaSenha = await bcrypt.hash(senha, 12);
+        try {
+            Usuario.updateUsuario(tipo, nome, email, criptografaSenha, cpf, id)
+        } catch (error) {
+            throw new Error(error)
+        }
         return res.status(200).json({message: "Usuário atualizado com sucesso!!"})
 
     } catch (error) {

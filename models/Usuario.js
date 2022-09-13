@@ -50,5 +50,7 @@ module.exports = class Usuario {
                     tipo, nome, email,
                     senha, cpf, id ])
     }
+
+    
 }
 
