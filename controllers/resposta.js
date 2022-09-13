@@ -35,7 +35,7 @@ exports.postResposta = async(req, res, next) => {
 
         const respostaEnviada = await Resposta.postResposta(dadosResposta);
 
-        res.status(201).json(respostaEnviada)
+        res.status(201).json({message: 'Resposta enviada com sucesso!'}, respostaEnviada)
     } catch (err) {
         return res.status(500).json(err)
     }
@@ -49,7 +49,7 @@ exports.postAllRespostas = async(req, res, next) => {
         Respostas.forEach(element => {
             Resposta.postResposta(fk_usuario, element.id, element.nota)
         });
-        return res.status(200).json({message: 'foi garai'})
+        return res.status(200).json({message: 'Respostas enviadas com sucesso!'})
     } catch(err){
         res.status(500).json(err)
     }

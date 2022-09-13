@@ -1,4 +1,4 @@
-const Pesquisa = require('../models/Pesquisa')
+0,const Pesquisa = require('../models/Pesquisa')
 
 exports.getAll = async(req, res, next) => {
     try {
@@ -27,7 +27,7 @@ exports.deletePesquisa = async(req, res, next) => {
     const id = req.params.id
     try {
         Pesquisa.deletePesquisa(id)
-        return res.status(200).json({message: "Deletado com sucesso"})
+        return res.status(200).json({message: 'Deletado com sucesso!'})
     } catch (err) {
         return res.status(500).json(err)
     }
@@ -64,7 +64,7 @@ exports.postPesquisa = async (req, res, next) => {
 
         const pesquisaCriada = await Pesquisa.postPesquisa(dadosPequisa);
 
-        res.status(201).json({ message: 'Success Search Registered', id: pesquisaCriada });
+        res.status(201).json({ message: 'Pesquisa cadastrada com sucesso!', id: pesquisaCriada });
 
     } catch (err) {
         return res.status(500).json(err)
