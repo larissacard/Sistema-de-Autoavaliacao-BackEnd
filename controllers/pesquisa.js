@@ -1,4 +1,4 @@
-0,const Pesquisa = require('../models/Pesquisa')
+const Pesquisa = require('../models/Pesquisa')
 
 exports.getAll = async(req, res, next) => {
     try {
