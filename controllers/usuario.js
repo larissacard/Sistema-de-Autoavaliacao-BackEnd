@@ -51,7 +51,9 @@ exports.updateUsuario = async(req, res, next) => {
         return res.status(400).json({message: "Tipo de usuário invalido!"})
     }
 
-    if (tipo != 3 && senha.length < 8) return res.status(400).json({message: `A senha deve ter pelo menos 8 caracteres`})
+    if (tipo != 3) {
+        if (senha.length < 8) return res.status(400).json({message: `A senha deve ter pelo menos 8 caracteres`})
+    }
      
     try {
         Usuario
