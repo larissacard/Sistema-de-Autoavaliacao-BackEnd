@@ -4,6 +4,11 @@ const Pesquisa = require('../models/Pesquisa')
 exports.getAll = async(req, res, next) => {
     try {
         const pesquisas = await Pesquisa.getAll()
+        const todos_grupos = await Grupo.getComPesquisa()
+
+        pesquisas.rows.forEach((pe) => { 
+            pe.grupos = todos_grupos.filter(gr => gr.fk_pesquisa === pe.id)
+        })
         return res.status(200).json(pesquisas.rows)
     } catch (error) {
         return res.status(400).json(error)

@@ -44,5 +44,12 @@ module.exports = class Grupo {
         return cliente.query(`INSERT INTO pesquisa_grupo (fk_pesquisa, fk_grupo, data_inicio, data_fim)
                               values ($1, $2, $3, $4)`, [fk_pesquisa, fk_grupo, data_inicio, data_fim])
     }
+
+    static getComPesquisa(){
+        return cliente
+                    .query(`SELECT * FROM grupo AS gr
+                            INNER JOIN pesquisa_grupo AS pg ON pg.fk_grupo = gr.id
+                            INNER JOIN pesquisa AS pe ON pe.id = pg.fk_pesquisa`)
+    }
 }
 
