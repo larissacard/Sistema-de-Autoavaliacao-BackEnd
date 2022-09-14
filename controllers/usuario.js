@@ -45,9 +45,9 @@ exports.deleteUsuario = async(req, res, next) => {
 
 exports.updateUsuario = async(req, res, next) => {
     const id = req.params.id
-    const {nome, email, cpf, foto} = req.body
+    const {nome, email, cpf} = req.body
 
-    
+    console.log(req.body)
     try {
         const user = await Usuario.getOne(id)
         console.log(user)
