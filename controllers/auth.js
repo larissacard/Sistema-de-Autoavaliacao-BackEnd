@@ -24,7 +24,7 @@ exports.cadastrar = async (req, res, next) => {
         }
 
         if (tipo !== 3 && senha.length < 8) {
-            return res.status(400).json({menssage : "Senha tem que ter no min 7 caracteres"})
+            return res.status(400).json({menssage : "Senha tem que ter no min 8 caracteres"})
         }
 
         const qtd_emails = await Root.procurarRootEmail(email)
