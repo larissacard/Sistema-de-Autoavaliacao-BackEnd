@@ -3,11 +3,11 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.sequelize.query(`
-      ALTER TABLE pesquisa DROP COLUMN IF EXISTS fk_grupo,
-      DROP COLUMN IF EXISTS data_inicio, 
-      DROP DOLUMN IF EXISTS data_fim;
+      ALTER TABLE pesquisa DROP COLUMN fk_grupo,
+      DROP COLUMN data_inicio, 
+      DROP COLUMN data_fim;
 
-      CREATE TABLE IF NOT EXISTS pesquisa_grupo(
+      CREATE TABLE pesquisa_grupo(
         id serial primary key,
         fk_pesquisa bigint not null,
         fk_grupo bigint not null,
