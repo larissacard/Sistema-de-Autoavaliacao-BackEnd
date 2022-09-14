@@ -6,8 +6,10 @@ exports.getAll = async(req, res, next) => {
         const pesquisas = await Pesquisa.getAll()
         const todos_grupos = await Grupo.getComPesquisa()
 
+        console.log(`Todas Pesquisas: ${pesquisas.rows}`)
         pesquisas.rows.forEach((pe) => { 
-            pe.grupos = todos_grupos.filter(gr => gr.fk_pesquisa === pe.id)
+            pe.grupos = todos_grupos.rows.filter(gr => gr.fk_pesquisa === pe.id)
+            console.log(`Vendo grupos da pesquisa ${pe}: ${pe.grupos}`)
         })
         return res.status(200).json(pesquisas.rows)
     } catch (error) {
