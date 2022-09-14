@@ -45,10 +45,10 @@ module.exports = class Usuario {
                             WHERE id = $1`, [id])
     }
 
-    static updateUsuario(tipo, nome, email, cpf, id, foto) {
+    static updateUsuario(nome, email, cpf, id, foto) {
         return cliente
-                    .query(`UPDATE usuario set tipo = $1, nome = $2, email = $3, cpf = $4, foto = $5 WHERE id = $6`, [
-                    tipo, nome, email, cpf, foto, id ])
+                    .query(`UPDATE usuario set nome = $1, email = $2, cpf = $3, foto = $4 WHERE id = $5`, [
+                    nome, email, cpf, foto, id ])
     }
 
     

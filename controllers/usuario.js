@@ -45,11 +45,7 @@ exports.deleteUsuario = async(req, res, next) => {
 
 exports.updateUsuario = async(req, res, next) => {
     const id = req.params.id
-    const {tipo, nome, email, cpf, foto} = req.body
-
-    if(tipo != '1' && tipo != '2' && tipo != '3'){
-        return res.status(400).json({message: "Tipo de usuário invalido!"})
-    }
+    const {nome, email, cpf, foto} = req.body
 
     if (req.file){
         var result = await s3Uploadv2(req.file)
@@ -58,7 +54,7 @@ exports.updateUsuario = async(req, res, next) => {
      
     try {
         try {
-            Usuario.updateUsuario(tipo, nome, email, cpf, id, foto)
+            Usuario.updateUsuario(nome, email, cpf, id, foto)
         } catch (error) {
             throw new Error(error)
         }
