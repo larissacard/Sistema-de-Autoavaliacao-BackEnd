@@ -50,13 +50,14 @@ exports.updateUsuario = async(req, res, next) => {
     
     try {
         const user = await Usuario.getOne(id)
+        console.log(user)
         foto = user.rows[0].foto
         
         if (req.file){
             var result = await s3Uploadv2(req.file)
             foto = result.Location
         }
-        
+
         try {
             Usuario.updateUsuario(nome, email, cpf, id, foto)
         } catch (error) {
