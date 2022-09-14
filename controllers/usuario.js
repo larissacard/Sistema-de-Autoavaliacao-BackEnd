@@ -1,4 +1,5 @@
 const Usuario = require('../models/Usuario')
+const { s3Uploadv2 } = require("../middleware/s3Service");
 
 exports.getAll = async(req, res, next) => {
     try {
