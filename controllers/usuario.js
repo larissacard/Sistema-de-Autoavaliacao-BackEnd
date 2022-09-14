@@ -45,21 +45,15 @@ exports.deleteUsuario = async(req, res, next) => {
 
 exports.updateUsuario = async(req, res, next) => {
     const id = req.params.id
-    const {tipo, nome, email, senha, cpf} = req.body
+    const {tipo, nome, email, cpf} = req.body
 
     if(tipo != '1' && tipo != '2' && tipo != '3'){
         return res.status(400).json({message: "Tipo de usuário invalido!"})
     }
-
-    if (tipo != 3) {
-        if (senha.length < 8) return res.status(400).json({message: `A senha deve ter pelo menos 8 caracteres`})
-    }
      
     try {
-        Usuario
-        const criptografaSenha = await bcrypt.hash(senha, 12);
         try {
-            Usuario.updateUsuario(tipo, nome, email, criptografaSenha, cpf, id)
+            Usuario.updateUsuario(tipo, nome, email, cpf, id)
         } catch (error) {
             throw new Error(error)
         }
