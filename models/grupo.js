@@ -39,5 +39,10 @@ module.exports = class Grupo {
     static postGrupoPessoa(grupo, pessoa) {
         return cliente.query(`INSERT INTO grupo_usuario (fk_grupo, fk_usuario) values ($1, $2)`, [grupo, pessoa])
     }
+
+    static AssociaGrupoPesquisa(fk_pesquisa, fk_grupo, data_inicio, data_fim) {
+        return cliente.query(`INSERT INTO pesquisa_grupo (fk_pesquisa, fk_grupo, data_inicio, data_fim)
+                              values ($1, $2, $3, $4)`, [fk_pesquisa, fk_grupo, data_inicio, data_fim])
+    }
 }
 

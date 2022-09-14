@@ -13,6 +13,7 @@ exports.getOne = async (req, res, next) => {
     const id = req.params.id
     try {
         const grupo = await Grupo.getOne(id)
+        if (grupo.rowCount === 0) return res.status(404).json({message: `Nenhum Grupo Encontrado com o ID ${id}`})
         const pessoas = await Grupo.getPessoas(id)
 
         // Montando um Objeto para a resposta
@@ -51,6 +52,8 @@ exports.putGrupo = async(req, res, next) => {
     const id = req.params.id
     const {nome, status} = req.body
     try {
+        if (grupo.rowCount === 0) return res.status(404).json({message: `Nenhum Grupo Encontrado com o ID ${id}`})
+
         Grupo.putGrupo( nome, status, id )
         return res.status(200).json({message: "Atualizado"})
     } catch (err) {
@@ -61,7 +64,8 @@ exports.putGrupo = async(req, res, next) => {
 exports.deleteGrupo = async(req, res, next) => {
     const id = req.params.id
     try {
-       Grupo.deleteGrupo(id)
+        if (grupo.rowCount === 0) return res.status(404).json({message: `Nenhum Grupo Encontrado com o ID ${id}`})
+        Grupo.deleteGrupo(id)
         return res.status(200).json({message: 'deletado com sucesso!'})
     } catch (err) {
         return res.status(500).json(err)

@@ -130,10 +130,11 @@ São esperadas as seguintes entradas:
 {
 	"titulo": "Aloha",
 	"descricao": "aloha para todos, todas e todes",
-	"fk_grupo": 5,
+	"grupos": [1, 3],
+	"datas_inicio": ["2022-09-14T12:21:29.579Z", "2022-09-14T12:21:29.579Z"],
+	"datas_fim": ["2022-09-14T12:21:29.579Z", "2022-09-14T12:21:29.579Z"],
 	"fk_tipo_pesquisa": 5,
 	"fk_usuario": 3
-	
 }
 ```
 Observações:
@@ -141,6 +142,7 @@ Observações:
 	- Não é possível cadastrar pesquisa com grupos não existentes
 	- Não é possível cadastrar pesquisa com tipos de pesquisa não existentes
 	- Não é possível cadastrar pesquisa com usuario não existente
+	- Cada grupo deve ter uma data de inicio e de fim da validade da pesquisa
 
 
 ## Buscar Pesquisa Especifica
@@ -253,9 +255,7 @@ https://aasa-senai.herokuapp.com/pesquisa/:id
 {
 	"titulo": "Alohe",
 	"descricao": "alohe todes",
-	"fk_grupo": 5,
-	"fk_tipo_pesquisa": 5,
-	"fk_usuario": 3
+	"fk_tipo_pesquisa": 5
 }
 ```
 

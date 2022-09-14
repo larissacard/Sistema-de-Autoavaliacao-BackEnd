@@ -1,14 +1,12 @@
 const cliente = require("../infra/connection");
 
 module.exports = class Pesquisa {
-    constructor(descricao, titulo, id, fk_grupo, fk_tipo_pesquisa) {
+    constructor(descricao, titulo, id, fk_tipo_pesquisa) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
-        this.fk_grupo = fk_grupo;
         this.fk_tipo_pesquisa = fk_tipo_pesquisa;
         this.fk_usuario = fk_usuario;
-
     }
 
     static getAll(){
@@ -28,15 +26,15 @@ module.exports = class Pesquisa {
     }
 
     static postPesquisa(pesquisa) {
-        return cliente.query(`INSERT INTO pesquisa (titulo, descricao, fk_grupo, fk_tipo_pesquisa, fk_usuario, data_inicio, data_fim)
-                              values ($1, $2, $3, $4, $5, $6, $7) returning id`,
-                              [pesquisa.titulo, pesquisa.descricao, pesquisa.fk_grupo, pesquisa.fk_tipo_pesquisa, pesquisa.fk_usuario, pesquisa.data_inicio, pesquisa.data_fim]);
+        return cliente.query(`INSERT INTO pesquisa (titulo, descricao, fk_tipo_pesquisa, fk_usuario)
+                              values ($1, $2, $3, $4) returning id`,
+                              [pesquisa.titulo, pesquisa.descricao, pesquisa.fk_tipo_pesquisa, pesquisa.fk_usuario]);
     }
 
-    static putPesquisa(fk_grupo, titulo, descricao, fk_tipo_pesquisa, id){
+    static putPesquisa(titulo, descricao, fk_tipo_pesquisa, id){
         return cliente.query(`UPDATE pesquisa
-                              set fk_grupo = $1, titulo = $2, descricao = $3, fk_tipo_pesquisa = $4
-                              where id = $5`, [fk_grupo, titulo, descricao, fk_tipo_pesquisa, id])
+                              set titulo = $1, descricao = $2, fk_tipo_pesquisa = $3
+                              where id = $4`, [titulo, descricao, fk_tipo_pesquisa, id])
     }
 
     static putTituloDesc(titulo, descricao){
@@ -56,6 +54,13 @@ module.exports = class Pesquisa {
                             INNER JOIN pesquisa AS pesq ON pesq.id = perg.fk_pesquisa
                             INNER JOIN usuario AS us ON us.id = res.fk_usuario
                             WHERE pesq.id = $1 and us.id = $2`, [pesquisa, user]);
+    }
+
+    static getGrupos(pesquisa){
+        return cliente.query(`SELECT gr.* FROM pesquisa AS pe
+                              INNER JOIN pesquisa_grupo AS pg ON pg.fk_pesquisa = pe.id
+                              INNER JOIN grupo AS gr ON gr.id = pg.fk_grupo
+                              WHERE pe.id = $1`, [pesquisa])
     }
 }
 
