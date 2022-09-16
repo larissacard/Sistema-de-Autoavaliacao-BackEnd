@@ -71,3 +71,14 @@ exports.deleteGrupo = async(req, res, next) => {
         return res.status(500).json(err)
     }
 }
+
+exports.getGrupoPesquisas = async(req, res, next) => {
+    const id = req.params.id
+    
+    try {
+      const resultado = await Grupo.getGrupoPesquisas(id)
+        return res.status(200).json(resultado)
+    } catch (error) {
+        return res.status(400).json(error)
+    }
+}

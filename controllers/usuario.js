@@ -13,7 +13,6 @@ exports.getAll = async(req, res, next) => {
 
 exports.getPesquisas = async(req, res, next) => {
     const id = req.params.id
-
     try {
         let pesquisas = await Usuario.getPesquisas(id)
         let respondidas = await Usuario.getPesquisasRes(id)

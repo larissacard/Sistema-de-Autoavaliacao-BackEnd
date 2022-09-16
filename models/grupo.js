@@ -23,6 +23,13 @@ module.exports = class Grupo {
                             WHERE gr.id = $1`, [id]);
     }
 
+    static getGrupoPesquisas(id){
+        return cliente.query(`SELECT pe.* from pesquisa as pe
+                            INNER JOIN pesquisa_grupo AS pg ON pg.fk_pesquisa = pe.id
+                            INNER JOIN grupo AS gr ON gr.id = pg.fk_grupo
+                            WHERE gr.id = $1`, [id])
+    }
+
     static postGrupo(grupo){
         return cliente.query(`INSERT INTO grupo (nome, status) values ($1, $2)
                               RETURNING id`, [grupo.nome, grupo.status]);
