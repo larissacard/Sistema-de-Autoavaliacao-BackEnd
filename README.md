@@ -356,7 +356,8 @@ São esperadas as seguintes entradas:
 ```json
 {
 	"nome": "Grupo Brisa",
-	"status": "1"
+	"status": "1",
+	"pessoas": [4, 14, 120]
 }
 ```
 
