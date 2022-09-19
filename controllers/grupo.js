@@ -42,7 +42,7 @@ exports.postGrupo = async(req, res, next) => {
             Grupo.postGrupoPessoa(grupoEnviado.rows[0].id, element)
         });
 
-        res.status(201).json({message: 'Cadastrado com sucesso!', data: grupoEnviado})
+        res.status(201).json({message: 'Cadastrado com sucesso!', data: grupoEnviado.rows})
     } catch (err) {
         return res.status(500).json(err)
     }
@@ -52,6 +52,7 @@ exports.putGrupo = async(req, res, next) => {
     const id = req.params.id
     const {nome, status} = req.body
     try {
+        const grupo = Grupo.getOne(id)
         if (grupo.rowCount === 0) return res.status(404).json({message: `Nenhum Grupo Encontrado com o ID ${id}`})
 
         Grupo.putGrupo( nome, status, id )
