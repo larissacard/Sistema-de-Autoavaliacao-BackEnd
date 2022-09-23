@@ -71,7 +71,8 @@ exports.deleteGrupo = async(req, res, next) => {
     const id = req.params.id
     try {
         if (grupo.rowCount === 0) return res.status(404).json({message: `Nenhum Grupo Encontrado com o ID ${id}`})
-        Grupo.deleteGrupo(id)
+        await Grupo.removePessoas(id)
+        await Grupo.deleteGrupo(id)
         return res.status(200).json({message: 'deletado com sucesso!'})
     } catch (err) {
         return res.status(500).json(err)
