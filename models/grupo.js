@@ -61,7 +61,7 @@ module.exports = class Grupo {
 
     static removePessoas(id){
         return cliente
-                    .query(`DELETE FROM grupo_usuario where fk_grupo = ${id}`)
+                    .query(`DELETE FROM grupo_usuario where fk_grupo = $1`, [id])
     }
 }
 

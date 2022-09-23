@@ -56,9 +56,11 @@ exports.putGrupo = async(req, res, next) => {
         Grupo.putGrupo( nome, status, id )
 
         await Grupo.removePessoas(id)
+        console.log("#")
         if (pessoas) pessoas.forEach((pe) =>
             Grupo.postGrupoPessoa(id, pe)
         )
+        console.log("##")
         return res.status(200).json({message: "Atualizado"})
     } catch (err) {
         return res.status(500).json(err)
