@@ -30,7 +30,7 @@ exports.getOne = async (req, res, text) => {
 
 exports.postGrupo = async(req, res, next) => {
     const {nome, status, pessoas} = req.body
-    try{O
+    try{
         const dadosGrupo = {
             nome: nome,
             status: status
