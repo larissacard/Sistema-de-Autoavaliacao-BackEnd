@@ -70,6 +70,7 @@ exports.putGrupo = async(req, res, next) => {
 exports.deleteGrupo = async(req, res, next) => {
     const id = req.params.id
     try {
+        const grupo = await Grupo.getOne(id)
         if (grupo.rowCount === 0) return res.status(404).json({message: `Nenhum Grupo Encontrado com o ID ${id}`})
         console.log("#")
         await Grupo.removePessoas(id)
