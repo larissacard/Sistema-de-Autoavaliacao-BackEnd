@@ -36,7 +36,7 @@ module.exports = class Grupo {
     }
 
     static putGrupo(grupo, id) {
-        return cliente.query(`UPDATE grupo  (nome, status, id) values ($1, $2, $3)`, [grupo.nome, grupo.status, id], );
+        return cliente.query(`UPDATE grupo (nome, status) values ($1, $2) where id = $3`, [grupo.nome, grupo.status, id], );
     }
 
     static deleteGrupo(id){
