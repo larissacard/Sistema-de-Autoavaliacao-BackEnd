@@ -63,5 +63,10 @@ module.exports = class Grupo {
         return cliente
                     .query(`DELETE FROM grupo_usuario where fk_grupo = $1`, [id])
     }
+
+    static removePesquisa(id){
+        return cliente
+                    .query(`DELETE FROM pesquisa_grupo where fk_grupo = $1`, [id])
+    }
 }
 
