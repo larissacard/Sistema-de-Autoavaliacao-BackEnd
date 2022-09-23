@@ -53,7 +53,7 @@ exports.putGrupo = async(req, res, next) => {
         const grupo = Grupo.getOne(id)
         if (grupo.rowCount === 0) return res.status(404).json({message: `Nenhum Grupo Encontrado com o ID ${id}`})
 
-        await Grupo.putGrupo( nome, status, id )
+        await Grupo.putGrupo( {nome: nome, status: status}, id )
 
         console.log("###")
         await Grupo.removePessoas(id)
