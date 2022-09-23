@@ -41,6 +41,8 @@ exports.postGrupo = async(req, res, next) => {
             Grupo.postGrupoPessoa(grupoEnviado.rows[0].id, element)
         });
 
+        return res.status(201).json({message: `Grupo criado`})
+
     } catch (err) {
         return res.status(500).json(err)
     }
