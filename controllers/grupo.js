@@ -1,6 +1,6 @@
 const Grupo = require('../models/grupo')
 
-exports.getAll = async (req, res, next) => {
+exports.getAll = async (req, res, caval) => {
     try {
         const grupos = await Grupo.getAll()
         return res.status(200).json(grupos.rows)
@@ -9,7 +9,7 @@ exports.getAll = async (req, res, next) => {
     }
 }
 
-exports.getOne = async (req, res, next) => {
+exports.getOne = async (req, res, text) => {
     const id = req.params.id
     try {
         const grupo = await Grupo.getOne(id)
@@ -30,7 +30,7 @@ exports.getOne = async (req, res, next) => {
 
 exports.postGrupo = async(req, res, next) => {
     const {nome, status, pessoas} = req.body
-    try{
+    try{O
         const dadosGrupo = {
             nome: nome,
             status: status
@@ -42,7 +42,9 @@ exports.postGrupo = async(req, res, next) => {
             Grupo.postGrupoPessoa(grupoEnviado.rows[0].id, element)
         });
 
-        res.status(201).json({message: 'Cadastrado com sucesso!', data: grupoEnviado.rows})
+
+
+
     } catch (err) {
         return res.status(500).json(err)
     }
@@ -50,12 +52,17 @@ exports.postGrupo = async(req, res, next) => {
 
 exports.putGrupo = async(req, res, next) => {
     const id = req.params.id
-    const {nome, status} = req.body
+    const {nome, status, pessoas } = req.body
     try {
         const grupo = Grupo.getOne(id)
         if (grupo.rowCount === 0) return res.status(404).json({message: `Nenhum Grupo Encontrado com o ID ${id}`})
 
         Grupo.putGrupo( nome, status, id )
+
+        await Grupo.removePessoas(id)
+        if (pessoas) pessoas.forEach((pe) =>
+            Grupo.postGrupoPessoa(id, pe)
+        )
         return res.status(200).json({message: "Atualizado"})
     } catch (err) {
         return res.status(500).json(err)

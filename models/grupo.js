@@ -58,5 +58,10 @@ module.exports = class Grupo {
                             INNER JOIN pesquisa_grupo AS pg ON pg.fk_grupo = gr.id
                             INNER JOIN pesquisa AS pe ON pe.id = pg.fk_pesquisa`)
     }
+
+    static removePessoas(id){
+        return cliente
+                    .query(`DELETE FROM grupo_usuario where fk_grupo = ${id}`)
+    }
 }
 
