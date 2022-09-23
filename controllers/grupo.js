@@ -55,6 +55,7 @@ exports.putGrupo = async(req, res, next) => {
 
         Grupo.putGrupo( nome, status, id )
 
+        console.log("###")
         await Grupo.removePessoas(id)
         console.log("#")
         if (pessoas) pessoas.forEach((pe) =>
