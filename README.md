@@ -27,8 +27,9 @@
 -  O Banco de Dados e a BackEnd estão hospedadas no [Heroku](https://www.heroku.com).
 - Foi desenvolvido com [NodeJs](https://nodejs.org/en/), [Express](https://expressjs.com/pt-br/) e [PostgreSQL](https://www.postgresql.org);
 
-## Requisitos
--
+Disponivel em:
+<a href="https://aasa-senai.herokuapp.com/">https://aasa-senai.herokuapp.com/<a/>
+	
 # Funcionalidades
 - [x] SISTEMAS DE GESTÃO DE USUÁRIOS 
 - [x] PERFIS DE USUÁRIOS
